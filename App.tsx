@@ -228,7 +228,7 @@ const App: React.FC = () => {
                 <div className="absolute inset-0 bg-brand/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0" />
                 <img
                   src="/jenny.webp"
-                  alt="Jenny - Principal Designer"
+                  alt="Jenny Sin - Interior Designer"
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
@@ -250,7 +250,7 @@ const App: React.FC = () => {
               <Reveal>
                 <h2 className="text-6xl md:text-7xl font-serif text-stone-900 leading-none">
                   Meet <br />
-                  <span className="italic text-brand text-8xl">Jenny</span>
+                  <span className="italic text-brand text-8xl">Jenny Sin</span>
                 </h2>
               </Reveal>
 
@@ -263,7 +263,7 @@ const App: React.FC = () => {
               <Reveal>
                 <div className="space-y-6 text-stone-500 text-lg">
                   <p>
-                    As the Principal Designer at BlessSpace, Jenny has revolutionized the way homeowners visualize their future. With an obsession for detail and a hatred for "guesswork," she ensures every pixel serves a purpose.
+                    As the Interior Designer at Blesspace, Jenny Sin has revolutionized the way clients visualize their future. With an obsession for detail and a hatred for guesswork, she ensures every pixel serves a purpose.
                   </p>
                   <p>
                     She doesn't just design rooms; she curates lifestyles.
@@ -273,9 +273,9 @@ const App: React.FC = () => {
 
               <Reveal>
                 <div className="pt-8">
-                  <img src="/logo.webp" className="h-12 opacity-80 invert" alt="Signature" loading="lazy" />
-                  {/* Using logo as stand-in signature since we don't have a real signature image */}
-                  <p className="text-xs tracking-widest text-stone-400 mt-2 uppercase">Principal Designer</p>
+                  <img src="/logo.webp" className="h-12 opacity-80 invert" alt="Blesspace Logo" loading="lazy" />
+                  {/* Logo placeholder - user will replace this */}
+                  <p className="text-xs tracking-widest text-stone-400 mt-2 uppercase">Interior Designer</p>
                 </div>
               </Reveal>
             </div>
@@ -547,6 +547,11 @@ const App: React.FC = () => {
               </div>
             ))}
           </div>
+          <Reveal delay={0.4}>
+            <p className="text-center text-stone-400 text-sm mt-8 italic">
+              *Or unlimited time design revisions, if you sign the packages.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -570,10 +575,13 @@ const App: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                    <div className="mt-auto pt-8 border-t border-stone-200">
+                      <p className={`text-4xl font-serif font-bold mb-6 ${pkg.highlight ? 'text-white' : 'text-stone-900'}`}>{pkg.price}</p>
+                      <Button variant={pkg.highlight ? 'primary' : 'secondary'} fullWidth onClick={() => handleOpenCheckout(pkg)}>
+                        Secure This Plan
+                      </Button>
+                    </div>
                   </div>
-                  <Button variant={pkg.highlight ? 'primary' : 'secondary'} fullWidth onClick={() => handleOpenCheckout(pkg)}>
-                    Secure This Plan
-                  </Button>
                 </div>
               </Reveal>
             ))}

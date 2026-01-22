@@ -93,7 +93,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, s
                             </div>
                             <div className="text-right">
                                 <p className="text-stone-500 text-sm">Total</p>
-                                <p className="font-serif text-2xl font-bold text-stone-900">SGD 200.00</p>
+                                <p className="font-serif text-2xl font-bold text-stone-900">{selectedPackage?.price || "SGD 200.00"}</p>
                             </div>
                         </div>
 

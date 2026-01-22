@@ -13,7 +13,7 @@ export const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [question, setQuestion] = useState('');
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'assistant', content: "Hi, I'm Jenny. I hate seeing people waste money on bad renovations. Let me show you how to see the future before you build it. What is on your mind?" }
+        { role: 'assistant', content: "Hi, I’m Jenny. I believe every space can be a blessing — uplifting lives, strengthening families, and inspiring success. Let’s shape a future space that truly blesses you. What would you love to create?" }
     ]);
     const [isLoading, setIsLoading] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -49,8 +49,7 @@ export const Chatbot = () => {
                     "model": "deepseek/deepseek-chat",
                     "messages": [
                         {
-                            "role": "system",
-                            "content": "You are Jenny, the Principal Designer at BlessSpace. You are passionate, professional, and slightly obsessed with precision. You want to save homeowners from 'renovation nightmares' by selling them 3D visualization packages. Be friendly but authoritative. Do NOT use emojis. Do NOT use markdown formatting like asterisks (*) or bolding. Keep the text clean, professional, and plain."
+                            "content": "You are Jenny, the Interior Designer at BlessSpace. Answer the user's question concisely in 1-2 sentences. Then, IMMEDIATELY and ALWAYS end every single response with exactly this phrase: 'Thanks for your questions, if you would like to understand more, welcome to contact our customer services: +65 80970884, so they can arrange our team to serve you better.' Do not add anything else after this phrase."
                         },
                         ...newMessages
                     ]
@@ -106,7 +105,7 @@ export const Chatbot = () => {
                             <div className="absolute bottom-1 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-stone-900"></div>
                         </div>
                         <div className="text-left">
-                            <span className="block font-serif font-bold text-lg leading-none group-hover:text-brand transition-colors">Ask Jenny</span>
+                            <span className="block font-serif font-bold text-lg leading-none group-hover:text-brand transition-colors">Ask Jenny Sin</span>
                             <span className="text-[10px] text-brand uppercase tracking-widest leading-none">Online</span>
                         </div>
                     </motion.button>
@@ -133,10 +132,10 @@ export const Chatbot = () => {
                                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-stone-900"></div>
                                 </div>
                                 <div>
-                                    <h3 className="text-stone-100 font-serif font-medium text-lg">Ask Jenny</h3>
+                                    <h3 className="text-stone-100 font-serif font-medium text-lg">Ask Jenny Sin</h3>
                                     <p className="text-[10px] text-brand uppercase tracking-widest font-bold flex items-center gap-1">
                                         <span className="w-1 h-1 bg-brand rounded-full animate-pulse" />
-                                        Principal Designer
+                                        Interior Designer
                                     </p>
                                 </div>
                             </div>

@@ -54,21 +54,21 @@ export const NIGHTMARES = [
   {
     id: 1,
     title: "The 'Will It Fit?' Disaster",
-    description: "You buy a $3,000 sofa. It arrives. It blocks the hallway by 5cm. You have to return it (restocking fee) or live with a cramped room. Our 3D scale modeling prevents this instantly.",
+    description: "You fall in love with a sofa and spend $3,000 on it. When it arrives, you realize it blocks your walkway, turn the home into a cramped space instead of a blessing. Our 3D drawings ensures your space feels open, harmonious, and full of blessings — before anything is built.",
     icon: Ruler,
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2600&auto=format&fit=crop"
   },
   {
     id: 2,
-    title: "The Material Waste Trap",
-    description: "You order 500 sqft of expensive tiles. You only needed 420. Or worse, you order too little and the new batch doesn't match. We calculate exact surface areas in 3D.",
+    title: "Make Confident Design Decisions",
+    description: "regretted the colour choosen after installation ? Scared looked ugly than expected? With 3D renders, clients can preview colours, lighting, and the overall mood before finalizing, helping them make confident decisions and don’t need second thoughts.",
     icon: Trash2,
     image: "https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=2600&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "The Lighting Catastrophe",
-    description: "You install downlights. They cast ugly shadows on your face in the bathroom mirror. It's too late to move the wires. Our lighting simulation catches this before a single wire is run.",
+    title: "Align Design With Blessings & Energy",
+    description: "A Blessed family wanted a home that felt calm, open, and positive. Through 3D design, we adjusted the layout, lighting, and flow of the space to create a home that is harmonious, peaceful, uplifting, and truly full of blessings.",
     icon: Zap,
     image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=2600&auto=format&fit=crop"
   }
@@ -101,19 +101,47 @@ export const PACKAGES = [
   {
     name: "Room Rescue",
     description: "Don't buy furniture yet. Let us model your room to ensure everything fits and looks cohesive.",
-    features: ["1 Room Scale Model", "Furniture Fit Check", "Color Harmony Test", "2 Design Options"],
+    features: [
+      "1 room 3D Drawings (1 pcs)",
+      "Furniture fit check",
+      "Colour Harmony Test",
+      "1 times revision",
+      "2 times consultation"
+    ],
+    price: "$250",
     highlight: false
   },
   {
-    name: "The Blueprint",
+    name: "The Blessing Draft",
     description: "The safety net for your entire home renovation. Hand this to your contractor and sleep soundly.",
-    features: ["Full Home 3D Replica", "Walking Space Analysis", "Lighting Heatmap", "Material Purchase List", "Contractor Specs"],
+    features: [
+      "1 set Full home 720 degree hometour",
+      "Immersive experience to step inside new home before renovate.",
+      "Furniture fit check",
+      "Colour Harmony Test",
+      "1 times site consultation",
+      "1 times revision",
+      "2 times consultation"
+    ],
+    price: "$500",
     highlight: true
   },
   {
-    name: "Developer Suite",
+    name: "The Blessed Masterpieces",
     description: "Selling unbuilt property? We create emotional assets that sell the lifestyle before the foundation is poured.",
-    features: ["Cinematic Video Tour", "VR Experience", "Marketing Brochures", "Sales Gallery Assets"],
+    features: [
+      "1 set Full home 720 degree hometour",
+      "Immersive experience to step inside new home before renovate.",
+      "Walking Space Analysis",
+      "Moodboard",
+      "Furniture fit check",
+      "Colour Harmony Test",
+      "10 pcs 3D drawings",
+      "1 times site consultation",
+      "2 times revision",
+      "3 times consultation"
+    ],
+    price: "$3000",
     highlight: false
   }
 ];
@@ -149,20 +177,15 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const WHATS_INCLUDED = [
-  "Precise Laser-Like Measurements",
-  "Texture & Material Reality Check",
-  "Natural & Artificial Light Simulation",
-  "Furniture Ergonomics Analysis",
-  "Color Psychology Calibration",
-  "Unlimited Virtual Layout Swaps",
-  "Contractor Misunderstanding Prevention",
-  "Total Control Over Your Outcome"
+  "Clear layout visualization",
+  "Avoid costly mistakes",
+  "Confident decision-making"
 ];
 
 export const STATS = [
-  { label: "Wasted Materials Saved", value: "15%" },
+  { label: "Wasted Space Saved", value: "20%" },
   { label: "Client Confidence", value: "100%" },
-  { label: "Design Revisions", value: "Unlimited*" },
+  { label: "Design Revisions", value: "1 Time*" },
   { label: "Cost of Regret", value: "$0" },
 ];
 
@@ -213,6 +236,6 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "What if I want to change the style?",
-    answer: "That is the point! Change the wood to stone. Change the blue to white. Do it on our screen, not on your walls. It's instant and free."
+    answer: "That is the point! Change the wood to stone. Change the blue to white. Do it on our screen, not on your walls. It's instant, with worthy cost."
   }
 ];
