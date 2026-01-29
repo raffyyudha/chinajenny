@@ -29,23 +29,23 @@ export const IMAGES = {
 };
 
 export const CASE_STUDY = {
-  title: "CASE STUDY:\nTHE $15,000 MISTAKE.",
-  location: "Project: River Valley Penthouse",
-  challenge: "The client insisted on a dark aesthetic with a massive marble island. On paper, it looked fine. The contractor was ready to build.",
-  solution: "We built the 3D model first. Immediately, we saw the disaster waiting to happen.",
-  image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2600&auto=format&fit=crop", // Marble kitchen
+  title: "SAVED $12,500 &\nGAINED 30% MORE SPACE",
+  location: "Projects: Tanglin, 2026",
+  challenge: "Dream Designed Before Key Collection.",
+  solution: "",
+  image: "/L3D733S41ENDOXC5UFIUWIKQKLUFX7TEFUY8.webp",
   points: [
     {
-      label: "The Invisible Clash",
-      text: "The marble vein direction clashed violently with the wood floor grain. In 2D plans, this was invisible. In 3D, it was dizzying. We rotated the texture instantly, saving $8,000 in stone."
+      label: "Shoe Cabinet That Saved $2,800 in Storage & Reno Costs",
+      text: "Instead of adding extra rooms or bulky cabinets, a custom curved shoe cabinet maximized storage — saving thousands in carpentry costs while fitting 30–50% more shoes and bags. Designed for true shoe-and-bag lovers, this solution keeps the home elegant, space-efficient, and visually light — even in a small condo!"
     },
     {
-      label: "The 'Dead' Zone",
-      text: "The island placement blocked the dishwasher door by 4 inches. Fixing this after installation would mean ripping up the floor and plumbing ($4,000+ cost)."
+      label: "Kitchen Upgrade That Gained 30% More Usable Workspace",
+      text: "We reconfigured the layout to create a wider, more efficient kitchen, giving the client more prep space for cooking, baking, and daily use — without sacrificing other areas of the home. By optimizing layout through 3D planning, kitchen prep and storage space increased by up to 25%, improving cooking efficiency and reducing the need for future costly renovations."
     },
     {
-      label: "The Lighting Failure",
-      text: "Dark walls absorbed 80% of the light. We simulated adding a tinted mirror wall, which doubled the lux levels. The client was shocked by the difference."
+      label: "Island Feature That Added 2–3 Functional Zones in One Space",
+      text: "The large Island tabletop replaces the need for separate prep counters, breakfast tables, and workstations — effectively saving floor area and boosting lifestyle value without increasing renovation budget — turning a compact home into a high-value, multifunctional space."
     }
   ]
 };
@@ -177,13 +177,18 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const WHATS_INCLUDED = [
+  "Precise Laser-Like Measurements",
+  "Texture & Material Reality Check",
   "Clear layout visualization",
   "Avoid costly mistakes",
-  "Confident decision-making"
+  "Color Psychology Calibration",
+  "Confident decision-making",
+  "Contractor Misunderstanding Prevention",
+  "Total Control Over Your Outcome"
 ];
 
 export const STATS = [
-  { label: "Wasted Space Saved", value: "20%" },
+  { label: "Wasted Space Saved", value: "30%" },
   { label: "Client Confidence", value: "100%" },
   { label: "Design Revisions", value: "1 Time*" },
   { label: "Cost of Regret", value: "$0" },
@@ -215,7 +220,7 @@ export const PROCESS_STEPS = [
     step: "03",
     title: "You Avoid Disaster",
     description: "You receive the 3D Masterpiece. You spot the mistakes on screen, not in concrete. You save thousands. You proceed with certainty.",
-    image: "/process-3-success.webp"
+    image: "/Image-15.webp"
   }
 ];
 

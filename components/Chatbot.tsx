@@ -100,7 +100,7 @@ export const Chatbot = () => {
                     >
                         <div className="relative">
                             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-stone-800">
-                                <img src="/jenny-avatar.webp" alt="Jenny" className="w-full h-full object-cover" />
+                                <img src="/Image-5.webp" alt="Jenny" className="w-full h-full object-cover" />
                             </div>
                             <div className="absolute bottom-1 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-stone-900"></div>
                         </div>
@@ -127,7 +127,7 @@ export const Chatbot = () => {
                             <div className="flex items-center gap-4">
                                 <div className="relative">
                                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-stone-800">
-                                        <img src="/jenny-avatar.webp" alt="Jenny" className="w-full h-full object-cover" />
+                                        <img src="/Image-5.webp" alt="Jenny" className="w-full h-full object-cover" />
                                     </div>
                                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-stone-900"></div>
                                 </div>
@@ -158,7 +158,7 @@ export const Chatbot = () => {
                                 >
                                     {msg.role === 'assistant' && (
                                         <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
-                                            <img src="/jenny-avatar.webp" alt="Jenny" className="w-full h-full object-cover" />
+                                            <img src="/Image-5.webp" alt="Jenny" className="w-full h-full object-cover" />
                                         </div>
                                     )}
                                     <div
@@ -174,7 +174,7 @@ export const Chatbot = () => {
                             {isLoading && (
                                 <div className="flex gap-3 justify-start">
                                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
-                                        <img src="/jenny-avatar.webp" alt="Jenny" className="w-full h-full object-cover" />
+                                        <img src="/Image-5.webp" alt="Jenny" className="w-full h-full object-cover" />
                                     </div>
                                     <div className="bg-stone-800/80 border border-stone-700/50 p-4 rounded-2xl rounded-bl-none flex gap-2 items-center text-stone-400">
                                         <Loader2 size={16} className="animate-spin text-brand" />

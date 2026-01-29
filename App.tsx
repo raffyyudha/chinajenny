@@ -273,7 +273,7 @@ const App: React.FC = () => {
 
               <Reveal>
                 <div className="pt-8">
-                  <img src="/logo.webp" className="h-12 opacity-80 invert" alt="Blesspace Logo" loading="lazy" />
+                  <img src="/logo.webp" className="h-12 opacity-80 brightness-0" alt="Blesspace Logo" loading="lazy" />
                   {/* Logo placeholder - user will replace this */}
                   <p className="text-xs tracking-widest text-stone-400 mt-2 uppercase">Interior Designer</p>
                 </div>
