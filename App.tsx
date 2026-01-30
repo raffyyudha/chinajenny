@@ -437,16 +437,19 @@ const App: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                       alt={img.label}
                     />
-                    <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-500" />
+
                     {img.embedUrl && (
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="bg-brand/90 text-white rounded-full p-4 pointer-events-none">
-                          <span className="font-bold tracking-widest text-xs uppercase">3D Tour</span>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="bg-white/20 backdrop-blur-sm border border-white/50 text-white px-6 py-3 rounded-full flex items-center gap-3 transition-transform duration-300 group-hover:scale-110 group-hover:bg-white/30 shadow-2xl">
+                          <Box size={20} className="animate-pulse" />
+                          <span className="font-bold tracking-widest text-xs uppercase text-shadow-sm">Click to Start 3D Tour</span>
                         </div>
                       </div>
                     )}
+
                     <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      {img.embedUrl ? 'Start Tour' : 'View Project'}
+                      View Project
                     </div>
                   </div>
 
