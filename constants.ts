@@ -195,12 +195,14 @@ export const STATS = [
 ];
 
 export const GALLERY_IMAGES = [
-  { src: "/design 1 .webp", label: "Modern Living" },
-  { src: "/design 2 .webp", label: "Cozy Bedroom" },
-  { src: "/design 3.webp", label: "Luxury Kitchen" },
-  { src: "/design 7.webp", label: "Minimalist Bath" },
-  { src: "/desgn 6.webp", label: "Office Space" },
-  { src: "/design 5.webp", label: "Lounge Area" }
+  { src: "/portofolio/_1 (1).webp", label: "Modern Living" },
+  { src: "/portofolio/_2.webp", label: "Cozy Bedroom" },
+  { src: "/portofolio/_3.webp", label: "Luxury Kitchen" },
+  { src: "/portofolio/_4.webp", label: "Minimalist Bath" },
+  { src: "/portofolio/_5.webp", label: "Office Space" },
+  { src: "/portofolio/_6.webp", label: "Lounge Area" },
+  { src: "/portofolio/_7.webp", label: "Master Suite" },
+  { src: "/portofolio/_8.webp", label: "Dining Area" }
 ];
 
 export const PROCESS_STEPS = [

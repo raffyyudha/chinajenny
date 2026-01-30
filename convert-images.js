@@ -3,7 +3,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const directory = './public';
+const directory = './public/portofolio';
 
 fs.readdir(directory, (err, files) => {
     if (err) {

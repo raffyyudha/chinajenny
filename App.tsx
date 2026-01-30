@@ -227,7 +227,7 @@ const App: React.FC = () => {
               <div className="aspect-[3/4] overflow-hidden rounded-sm relative group">
                 <div className="absolute inset-0 bg-brand/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0" />
                 <img
-                  src="/jenny.webp"
+                  src="/IMG20240827154319.webp"
                   alt="Jenny Sin - Interior Designer"
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
