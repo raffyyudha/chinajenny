@@ -115,7 +115,7 @@ const SectionHeader = ({ title, subtitle, light = false }: { title: string, subt
 // --- MAIN APP ---
 
 const App: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [lightboxItem, setLightboxItem] = useState<{ type: 'image' | 'video' | 'iframe'; src: string } | null>(null);
   const [activeFAQ, setActiveFAQ] = useState<number | null>(0);
   const [activeNightmare, setActiveNightmare] = useState<number>(0);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -429,7 +429,7 @@ const App: React.FC = () => {
               <Reveal key={i} delay={i * 0.1}>
                 <div
                   className="group cursor-pointer interactive"
-                  onClick={() => setSelectedImage(img.src)}
+                  onClick={() => setLightboxItem(img.embedUrl ? { type: 'iframe', src: img.embedUrl } : { type: 'image', src: img.src })}
                 >
                   <div className="aspect-[4/5] overflow-hidden rounded-sm relative mb-6 shadow-md transition-all duration-500 group-hover:shadow-2xl">
                     <img
@@ -438,8 +438,15 @@ const App: React.FC = () => {
                       alt={img.label}
                     />
                     <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-500" />
+                    {img.embedUrl && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-brand/90 text-white rounded-full p-4 pointer-events-none">
+                          <span className="font-bold tracking-widest text-xs uppercase">3D Tour</span>
+                        </div>
+                      </div>
+                    )}
                     <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      View Project
+                      {img.embedUrl ? 'Start Tour' : 'View Project'}
                     </div>
                   </div>
 
@@ -609,7 +616,7 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-1 gap-8 max-h-[800px] overflow-y-auto pr-4 custom-scrollbar">
                 {TESTIMONIAL_IMAGES.map((img, i) => (
-                  <div key={i} className="relative group interactive cursor-zoom-in" onClick={() => setSelectedImage(img)}>
+                  <div key={i} className="relative group interactive cursor-zoom-in" onClick={() => setLightboxItem({ type: 'image', src: img })}>
                     <img
                       src={img}
                       alt={`Testimonial ${i + 1}`}
@@ -682,18 +689,28 @@ const App: React.FC = () => {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {selectedImage && (
+        {lightboxItem && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setLightboxItem(null)}
             className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out interactive"
           >
-            <button className="absolute top-8 right-8 text-white"><X size={32} /></button>
-            <motion.img
-              initial={{ scale: 0.9 }} animate={{ scale: 1 }}
-              src={selectedImage}
-              className="max-w-full max-h-[90vh] object-contain shadow-2xl"
-            />
+            <button className="absolute top-8 right-8 text-white hover:text-brand transition-colors"><X size={32} /></button>
+
+            {lightboxItem.type === 'iframe' ? (
+              <iframe
+                src={lightboxItem.src}
+                className="w-full h-full max-w-[90vw] max-h-[90vh] border-0 rounded-lg shadow-2xl"
+                allowFullScreen
+                title="3D View"
+              />
+            ) : (
+              <motion.img
+                initial={{ scale: 0.9 }} animate={{ scale: 1 }}
+                src={lightboxItem.src}
+                className="max-w-full max-h-[90vh] object-contain shadow-2xl"
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>

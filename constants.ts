@@ -195,14 +195,46 @@ export const STATS = [
 ];
 
 export const GALLERY_IMAGES = [
-  { src: "/portofolio/_1 (1).webp", label: "Modern Living" },
-  { src: "/portofolio/_2.webp", label: "Cozy Bedroom" },
-  { src: "/portofolio/_3.webp", label: "Luxury Kitchen" },
-  { src: "/portofolio/_4.webp", label: "Minimalist Bath" },
-  { src: "/portofolio/_5.webp", label: "Office Space" },
-  { src: "/portofolio/_6.webp", label: "Lounge Area" },
-  { src: "/portofolio/_7.webp", label: "Master Suite" },
-  { src: "/portofolio/_8.webp", label: "Dining Area" }
+  {
+    src: "/portofolio/_1 (1).webp",
+    label: "Modern Living",
+    embedUrl: "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"
+  },
+  {
+    src: "/portofolio/_2.webp",
+    label: "Cozy Bedroom",
+    embedUrl: "https://www.kujiale.com/cloud/design/3FO3CJ21TES6/airoaming"
+  },
+  {
+    src: "/portofolio/_3.webp",
+    label: "Luxury Kitchen",
+    embedUrl: "https://www.kujiale.com/cloud/design/3FO3CIWQRQDJ/show"
+  },
+  {
+    src: "/portofolio/_4.webp",
+    label: "Minimalist Bath",
+    embedUrl: "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"
+  },
+  {
+    src: "/portofolio/_5.webp",
+    label: "Office Space",
+    embedUrl: "https://www.kujiale.com/cloud/design/3FO3CJ21TES6/airoaming"
+  },
+  {
+    src: "/portofolio/_6.webp",
+    label: "Lounge Area",
+    embedUrl: "https://www.kujiale.com/cloud/design/3FO3CIWQRQDJ/show"
+  },
+  {
+    src: "/portofolio/_7.webp",
+    label: "Master Suite",
+    embedUrl: "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"
+  },
+  {
+    src: "/portofolio/_8.webp",
+    label: "Dining Area",
+    embedUrl: "https://www.kujiale.com/cloud/design/3FO3CJ21TES6/airoaming"
+  }
 ];
 
 export const PROCESS_STEPS = [
