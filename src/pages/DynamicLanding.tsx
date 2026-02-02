@@ -290,14 +290,7 @@ const DynamicLanding: React.FC = () => {
 
                     {/* FEATURED 3D TOUR EMBED */}
                     <Reveal>
-                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-black rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-20 group interactive">
-                            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-500 bg-black/50 backdrop-blur-[2px]">
-                                <div className="text-center">
-                                    <Box size={60} className="text-brand mx-auto mb-4 animate-bounce" />
-                                    <h3 className="text-3xl font-serif text-white">Interactive 3D Walkthrough</h3>
-                                    <p className="text-stone-300 mt-2">Click to Explore {locationName} Layout</p>
-                                </div>
-                            </div>
+                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-black rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-8 group">
                             <iframe
                                 src={GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"}
                                 className="w-full h-full border-0"
@@ -305,6 +298,16 @@ const DynamicLanding: React.FC = () => {
                                 loading="lazy"
                                 title={`3D Tour for ${locationName}`}
                             />
+                        </div>
+                        <div className="flex justify-center mb-20">
+                            <Button
+                                onClick={() => window.open(GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M", '_blank')}
+                                variant="outline"
+                                className="group border-brand text-brand hover:bg-brand hover:text-stone-900"
+                            >
+                                <Box className="mr-2 group-hover:rotate-12 transition-transform" size={18} />
+                                Open Full Screen 3D Experience
+                            </Button>
                         </div>
                     </Reveal>
 
