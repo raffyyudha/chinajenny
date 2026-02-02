@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blessspace.com/sitemap.xml

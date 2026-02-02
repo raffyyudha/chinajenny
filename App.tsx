@@ -117,9 +117,15 @@ const SectionHeader = ({ title, subtitle, light = false }: { title: string, subt
 // --- MAIN APP ---
 
 const App: React.FC = () => {
+  console.log("App component start");
   const [hasSelectedLanguage, setHasSelectedLanguage] = useState(false);
   const [lang, setLang] = useState<'en' | 'zh' | 'ms' | 'ta'>('en');
+  console.log("Current lang:", lang);
   const t = translations[lang];
+  console.log("Translation object exists:", !!t);
+
+  if (!t) return <div className="bg-stone-950 text-white flex items-center justify-center h-screen">Loading translations...</div>;
+
   const [lightboxItem, setLightboxItem] = useState<{ type: 'image' | 'video' | 'iframe'; src: string } | null>(null);
   const [activeFAQ, setActiveFAQ] = useState<number | null>(0);
   const [activeNightmare, setActiveNightmare] = useState<number>(0);

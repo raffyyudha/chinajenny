@@ -1,5 +1,5 @@
 
-import { DollarSign, UserCheck, XCircle, Layout, ShieldCheck, Zap, AlertTriangle, Ruler, Trash2 } from 'lucide-react';
+
 
 export const translations = {
     en: {
