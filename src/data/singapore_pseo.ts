@@ -39,12 +39,12 @@ export const SINGAPORE_LOCATIONS = [
 export const SERVICES = [
     // --- CORE SERVICES (DESIGN + BUILD) ---
     { slug: "interior-design", name: "Luxury Interior Design" },
-    { slug: "renovation-contractor", name: "Direct Renovation Contractor" }, // NEW
+    { slug: "renovation-contractor", name: "Direct Renovation Contractor" },
     { slug: "renovation", name: "Premium Home Renovation" },
-    { slug: "resale-renovation", name: "Resale Condo/HDB Renovation" }, // NEW
-    { slug: "bto-renovation", name: "BTO Renovation Package" }, // NEW
-    { slug: "wet-works", name: "Wet Works & Tiling Specialist" }, // NEW
-    { slug: "carpentry", name: "Custom Carpentry & Joinery" }, // NEW
+    { slug: "resale-renovation", name: "Resale Condo/HDB Renovation" },
+    { slug: "bto-renovation", name: "BTO Renovation Package" },
+    { slug: "wet-works", name: "Wet Works & Tiling Specialist" },
+    { slug: "carpentry", name: "Custom Carpentry & Joinery" },
     { slug: "3d-rendering", name: "Photorealistic 3D Rendering" },
     { slug: "condo-styling", name: "Condo Interior Styling" },
     { slug: "hdb-transformation", name: "HDB Flat Transformation" },
@@ -52,11 +52,10 @@ export const SERVICES = [
     // --- NICHE SERVICES (Long tail) ---
     { slug: "kitchen-overhaul", name: "Kitchen Renovation & Overhaul" },
     { slug: "luxury-bathroom", name: "Toilet & Bathroom Renovation" },
-    { slug: "hack-and-build", name: "Hacking & Masonry Works" }, // NEW
-    { slug: "luxury-bathroom", name: "Spa-Like Bathroom Design" },
+    { slug: "hack-and-build", name: "Hacking & Masonry Works" },
     { slug: "walk-in-wardrobe", name: "Bespoke Walk-In Wardrobe" },
     { slug: "home-office", name: "Productive Home Office Setup" },
-    { slug: "smart-home", name: "Integrated Smart Home Design" },
+    { slug: "smart-home", name: "Integrated Smart Home Renovation" },
     { slug: "minimalist-makeover", name: "Minimalist Makeover" },
     { slug: "feng-shui-audit", name: "Feng Shui Interior Audit" }
 ];
@@ -69,37 +68,7 @@ export const DESIGN_STYLES = [
 export const VIRAL_VIDEOS = [
     "/ssstik.io_1770018198775.mp4",
     "/ssstik.io_1770018301644.mp4",
-    "/videos/reel_1770024798101_231.mp4", "/videos/reel_1770024804496_845.mp4", "/videos/reel_1770024810462_229.mp4", "/videos/reel_1770024816891_986.mp4", "/videos/reel_1770024821110_467.mp4", "/videos/reel_1770024827023_696.mp4", "/videos/reel_1770024832577_178.mp4", "/videos/reel_1770024840322_325.mp4", "/videos/reel_1770024847375_29.mp4", "/videos/reel_1770024851766_771.mp4", "/videos/reel_1770024857899_458.mp4", "/videos/reel_1770024864322_932.mp4", "/videos/reel_1770024871027_39.mp4", "/videos/reel_1770024877674_474.mp4", "/videos/reel_1770024884657_310.mp4", "/videos/reel_1770024889744_526.mp4", "/videos/reel_1770024895776_746.mp4", "/videos/reel_1770024902244_919.mp4", "/videos/reel_1770024909305_406.mp4", "/videos/reel_1770024913320_973.mp4", "/videos/reel_1770024921091_526.mp4", "/videos/reel_1770024928892_448.mp4", "/videos/reel_1770024933794_97.mp4", "/videos/reel_1770024939190_504.mp4", "/videos/reel_1770024946946_195.mp4", "/videos/reel_1770024953832_746.mp4", "/videos/reel_1770024957867_606.mp4", "/videos/reel_1770024964846_92.mp4", "/videos/reel_1770024969660_420.mp4", "/videos/reel_1770024974405_781.mp4", "/videos/reel_1770024980459_493.mp4", "/videos/reel_1770024987985_189.mp4", "/videos/reel_1770024992001_580.mp4", "/videos/reel_1770024996051_380.mp4", "/videos/reel_1770025003932_252.mp4", "/videos/reel_1770025010894_545.mp4", "/videos/reel_1770025026266_924.mp4", "/videos/reel_1770025030639_364.mp4", "/videos/reel_1770025037708_525.mp4", "/videos/reel_1770025044088_202.mp4", "/videos/reel_1770025051375_714.mp4", "/videos/reel_1770025060500_520.mp4", "/videos/reel_1770025067582_588.mp4", "/videos/reel_1770025075876_842.mp4", "/videos/reel_1770025082209_697.mp4", "/videos/reel_1770025088200_272.mp4", "/videos/reel_1770025095442_864.mp4", "/videos/reel_1770025102286_511.mp4", "/videos/reel_1770025107719_977.mp4", "/videos/reel_1770025114795_626.mp4", "/videos/reel_1770025119528_79.mp4", "/videos/reel_1770025124143_491.mp4", "/videos/reel_1770025130804_818.mp4", "/videos/reel_1770025137533_889.mp4", "/videos/reel_1770025143159_300.mp4", "/videos/reel_1770025148982_871.mp4", "/videos/reel_1770025153488_964.mp4", "/videos/reel_1770025161158_865.mp4", "/videos/reel_1770025166739_957.mp4", "/videos/reel_1770025173920_830.mp4", "/videos/reel_1770025178425_513.mp4", "/videos/reel_1770025182966_333.mp4", "/videos/reel_1770025189454_543.mp4", "/videos/reel_1770025196725_865.mp4", "/videos/reel_1770025201642_455.mp4", "/videos/reel_1770025209196_230.mp4", "/videos/reel_1770025217981_215.mp4", "/videos/reel_1770025224870_579.mp4", "/videos/reel_1770025229426_477.mp4", "/videos/reel_1770025244510_132.mp4", "/videos/reel_1770025251225_487.mp4",    "/videos/reel_1770025257783_714.mp4",    "/videos/reel_1770025264878_40.mp4",    "/videos/reel_1770025272961_631.mp4",    "/videos/reel_1770025280987_50.mp4",    "/videos/reel_1770025286963_374.mp4",    "/videos/reel_1770025291767_144.mp4",    "/videos/reel_1770025298236_448.mp4",    "/videos/reel_1770025304502_478.mp4",    "/videos/reel_1770025310697_164.mp4",    "/videos/reel_1770025317355_37.mp4",    "/videos/reel_1770025323721_216.mp4",    "/videos/reel_1770025329305_420.mp4",    "/videos/reel_1770025337758_854.mp4",    "/videos/reel_1770025344609_387.mp4",    "/videos/reel_1770025351663_208.mp4",    "/videos/reel_1770025357135_680.mp4",    "/videos/reel_1770025362860_835.mp4",    "/videos/reel_1770025368889_269.mp4",    "/videos/reel_1770025374348_877.mp4",    "/videos/reel_1770025382598_651.mp4",    "/videos/reel_1770025389150_345.mp4",    "/videos/reel_1770025394440_707.mp4",    "/videos/reel_1770025399030_392.mp4",    "/videos/reel_1770025405820_399.mp4",    "/videos/reel_1770025414416_77.mp4",    "/videos/reel_1770025419805_272.mp4",    "/videos/reel_1770025425446_896.mp4",    "/videos/reel_1770025432681_179.mp4",    "/videos/reel_1770025440586_314.mp4",    "/videos/reel_1770025445023_547.mp4",    "/videos/reel_1770025451579_153.mp4",    "/videos/reel_1770025458243_668.mp4",    "/videos/reel_1770025465409_779.mp4",    "/videos/reel_1770025474735_126.mp4",    "/videos/reel_1770025481621_309.mp4",    "/videos/reel_1770025486951_998.mp4",    "/videos/reel_1770025493040_884.mp4",    "/videos/reel_1770025498406_851.mp4",    "/videos/reel_1770025504358_897.mp4",    "/videos/reel_1770025511018_878.mp4",    "/videos/reel_1770025515706_719.mp4",    "/videos/reel_1770025520940_155.mp4",    "/videos/reel_1770025527320_311.mp4",    "/videos/reel_1770025532179_714.mp4",    "/videos/reel_1770025540237_474.mp4",    "/videos/reel_1770025545183_21.mp4",    "/videos/reel_1770025550770_137.mp4",    "/videos/reel_1770025556470_578.mp4",    "/videos/reel_1770025562487_779.mp4",    "/videos/reel_1770025566915_705.mp4",    "/videos/reel_1770025571299_244.mp4",    "/videos/reel_1770025576351_763.mp4",    "/videos/reel_1770025582637_711.mp4",    "/videos/reel_1770025588693_210.mp4",    "/videos/reel_1770025593452_119.mp4",    "/videos/reel_1770025598342_957.mp4",    "/videos/reel_1770025603034_33.mp4",    "/videos/reel_1770025608418_433.mp4",    "/videos/reel_1770025612749_90.mp4",    "/videos/reel_1770025616835_915.mp4",    "/videos/reel_1770025622524_906.mp4",    "/videos/reel_1770025628852_602.mp4",    "/videos/reel_1770025635480_26.mp4",    "/videos/reel_1770025642577_441.mp4",    "/videos/reel_1770025647231_888.mp4",    "/videos/reel_1770025653318_902.mp4",    "/videos/reel_1770025660429_880.mp4",    "/videos/reel_1770025667455_782.mp4",    "/videos/reel_1770025674888_403.mp4",    "/videos/reel_1770025680069_571.mp4",    "/videos/reel_1770025685564_755.mp4",    "/videos/reel_1770025689686_659.mp4",    "/videos/reel_1770025696017_616.mp4",    "/videos/reel_1770025700438_989.mp4",    "/videos/reel_1770025705135_391.mp4",    "/videos/reel_1770025711544_658.mp4",    "/videos/reel_1770025715864_701.mp4",    "/videos/reel_1770025721489_762.mp4",    "/videos/reel_1770025726408_628.mp4",    "/videos/reel_1770025731630_312.mp4",    "/videos/reel_1770025739155_978.mp4",    "/videos/reel_1770025745845_976.mp4",    "/videos/reel_1770025751005_759.mp4",    "/videos/reel_1770025758581_310.mp4",    "/videos/reel_1770025765523_992.mp4",    "/videos/reel_1770025769662_899.mp4",    "/videos/reel_1770025775730_439.mp4",    "/videos/reel_1770025781297_569.mp4",    "/videos/reel_1770025789493_570.mp4",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "/videos/reel_1770030031744_691.mp4",    "/videos/reel_1770030038401_753.mp4",    "/videos/reel_1770030046343_214.mp4",    "/videos/reel_1770030053561_322.mp4",    "/videos/reel_1770030057117_551.mp4",    "/videos/reel_1770030063941_254.mp4",    "/videos/reel_1770030070293_906.mp4",    "/videos/reel_1770030078694_220.mp4",    "/videos/reel_1770030084533_69.mp4",    "/videos/reel_1770030088363_289.mp4",    "/videos/reel_1770030094092_58.mp4",    "/videos/reel_1770030098323_737.mp4",    "/videos/reel_1770030104184_962.mp4",    "/videos/reel_1770030109156_441.mp4",    "/videos/reel_1770030115747_742.mp4",    "/videos/reel_1770030122003_836.mp4",    "/videos/reel_1770030128153_809.mp4",    "/videos/reel_1770030131452_869.mp4",    "/videos/reel_1770030135559_453.mp4",    "/videos/reel_1770030138870_140.mp4",    "/videos/reel_1770030144549_741.mp4",    "/videos/reel_1770030148529_918.mp4",    "/videos/reel_1770030154628_759.mp4",    "/videos/reel_1770030160978_398.mp4",    "/videos/reel_1770030168397_860.mp4",    "/videos/reel_1770030173948_365.mp4",    "/videos/reel_1770030180578_871.mp4",    "/videos/reel_1770030185287_123.mp4",    "/videos/reel_1770030189112_234.mp4",    "/videos/reel_1770030195364_385.mp4",    "/videos/reel_1770030202394_344.mp4",    "/videos/reel_1770030212060_134.mp4",    "/videos/reel_1770030217962_995.mp4",    "/videos/reel_1770030224011_411.mp4",    "/videos/reel_1770030229588_790.mp4",    "/videos/reel_1770030237360_946.mp4",    "/videos/reel_1770030251852_89.mp4",    "/videos/reel_1770030258471_941.mp4",    "/videos/reel_1770030263961_884.mp4",    "/videos/reel_1770030270318_934.mp4",    "/videos/reel_1770030276309_380.mp4",    "/videos/reel_1770030282874_631.mp4",    "/videos/reel_1770030289831_181.mp4",    "/videos/reel_1770030294782_648.mp4",    "/videos/reel_1770030300213_333.mp4",    "/videos/reel_1770030304981_164.mp4",    "/videos/reel_1770030310236_836.mp4",    "/videos/reel_1770030315355_388.mp4",    "/videos/reel_1770030319358_45.mp4",    "/videos/reel_1770030323377_295.mp4",    "/videos/reel_1770030328053_801.mp4",    "/videos/reel_1770030333620_215.mp4",    "/videos/reel_1770030337700_850.mp4",    "/videos/reel_1770030342707_377.mp4",    "/videos/reel_1770030346717_428.mp4",    "/videos/reel_1770030350418_433.mp4",    "/videos/reel_1770030356348_856.mp4",    "/videos/reel_1770030366038_485.mp4",    "/videos/reel_1770030370375_103.mp4",    "/videos/reel_1770030376491_663.mp4",    "/videos/reel_1770030382110_204.mp4",    "/videos/reel_1770030385769_909.mp4",    "/videos/reel_1770030391548_795.mp4",    "/videos/reel_1770030396168_729.mp4",    "/videos/reel_1770030402218_609.mp4",    "/videos/reel_1770030408522_806.mp4",    "/videos/reel_1770030416845_578.mp4",    "/videos/reel_1770030420951_130.mp4",    "/videos/reel_1770030427091_284.mp4",    "/videos/reel_1770030432802_260.mp4",    "/videos/reel_1770030437833_229.mp4",    "/videos/reel_1770030443171_932.mp4",    "/videos/reel_1770030449011_609.mp4",    "/videos/reel_1770030454085_148.mp4",    "/videos/reel_1770030461840_331.mp4",    "/videos/reel_1770030468628_838.mp4",    "/videos/reel_1770030472915_802.mp4",    "/videos/reel_1770030477204_883.mp4",    "/videos/reel_1770030482222_330.mp4",    "/videos/reel_1770030487925_49.mp4",    "/videos/reel_1770030494205_24.mp4",    "/videos/reel_1770030501041_642.mp4",    "/videos/reel_1770030505618_895.mp4",    "/videos/reel_1770030510235_688.mp4",    "/videos/reel_1770030516136_238.mp4",    "/videos/reel_1770030523144_195.mp4",    "/videos/reel_1770030527317_165.mp4",    "/videos/reel_1770030530594_823.mp4",    "/videos/reel_1770030537062_67.mp4",    "/videos/reel_1770030541106_894.mp4",    "/videos/reel_1770030545235_962.mp4",    "/videos/reel_1770030549284_855.mp4",    "/videos/reel_1770030555560_507.mp4",    "/videos/reel_1770030559864_511.mp4",    "/videos/reel_1770030566006_330.mp4",    "/videos/reel_1770030570072_683.mp4",    "/videos/reel_1770030573518_633.mp4",    "/videos/reel_1770030578714_124.mp4",    "/videos/reel_1770030585860_660.mp4",    "/videos/reel_1770030591954_246.mp4",    "/videos/reel_1770030597271_841.mp4",    "/videos/reel_1770030603466_169.mp4",    "/videos/reel_1770030609432_425.mp4",    "/videos/reel_1770030615287_152.mp4",    "/videos/reel_1770030621288_502.mp4",    "/videos/reel_1770030625586_449.mp4",    "/videos/reel_1770030633012_558.mp4",    "/videos/reel_1770030638810_42.mp4",    "/videos/reel_1770030643819_112.mp4",    "/videos/reel_1770030650323_245.mp4",    "/videos/reel_1770030656655_207.mp4",    "/videos/reel_1770030662037_983.mp4",    "/videos/reel_1770030667681_747.mp4",    "/videos/reel_1770030672011_56.mp4",    "/videos/reel_1770030678195_54.mp4",    "/videos/reel_1770030683848_953.mp4",    "/videos/reel_1770030688066_238.mp4",    "/videos/reel_1770030692872_769.mp4",    "/videos/reel_1770030697238_322.mp4",    "/videos/reel_1770030703942_93.mp4",    "/videos/reel_1770030708103_600.mp4",    "/videos/reel_1770030716118_367.mp4",    "/videos/reel_1770030719794_102.mp4",    "/videos/reel_1770030726143_224.mp4",    "/videos/reel_1770030731332_196.mp4",    "/videos/reel_1770030737845_64.mp4",    "/videos/reel_1770030743634_923.mp4",    "/videos/reel_1770030748771_844.mp4",    "/videos/reel_1770030753010_38.mp4",    "/videos/reel_1770030757359_371.mp4",
 
 
 
@@ -235,7 +204,7 @@ export const VIRAL_VIDEOS = [
 export const MANDARIN_CONTENT = {
     intro: {
         heading: "设计师寄语 (A Word from Jenny)",
-        text: "设计不仅仅是美学，更是生活的艺术。在新加坡这样快节奏的城市，家应该是您心灵的避风港。 (Design is not just aesthetics, it is the art of living. In a fast-paced city like Singapore, your home should be a sanctuary for your soul.)"
+        text: "设计不仅仅是美学，更是生活的艺术。在新加坡这样快节奏的城市，家应该是您心灵的避港。 (Design is not just aesthetics, it is the art of living. In a fast-paced city like Singapore, your home should be a sanctuary for your soul.)"
     },
     fengshui: {
         heading: "风水与现代从 (Modern Feng Shui)",
