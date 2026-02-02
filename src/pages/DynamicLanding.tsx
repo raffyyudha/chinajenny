@@ -408,7 +408,7 @@ const DynamicLanding: React.FC = () => {
                                 <Link
                                     key={i}
                                     to={`/sg/${serviceSlug}/${loc.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`}
-                                    className="block hover:text-brand transition-colors whitespace-nowrap overflow-hidden text-ellipsis"
+                                    className="block hover:text-brand transition-colors text-sm leading-relaxed"
                                 >
                                     {loc} {serviceName}
                                 </Link>
