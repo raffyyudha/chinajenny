@@ -52,6 +52,26 @@ const DynamicLanding: React.FC = () => {
     const seed = locationName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const isCondo = locationName.includes("Residences") || locationName.includes("Park") || locationName.includes("Suites") || locationName.includes("Condo") || !locationName.includes("Punggol") && !locationName.includes("HDB");
 
+    // Deterministic Shuffle Function (Fisher-Yates)
+    const shuffleWithSeed = <T,>(array: T[], seed: number): T[] => {
+        const shuffled = [...array];
+        let m = shuffled.length, t, i;
+        while (m) {
+            i = Math.floor((seed % m) * m / m); // Simple pseudo-random
+            m--;
+            seed = (seed * 9301 + 49297) % 233280; // Pseudo-random generator step
+            t = shuffled[m];
+            shuffled[m] = shuffled[i];
+            shuffled[i] = t;
+        }
+        return shuffled;
+    };
+
+    // Randomize Content based on Seed so every page looks different
+    const uniqueGallery = shuffleWithSeed(GALLERY_IMAGES, seed).slice(0, 8);
+    const primaryVideo = VIRAL_VIDEOS[seed % VIRAL_VIDEOS.length];
+    const secondaryVideo = VIRAL_VIDEOS[(seed + 1) % VIRAL_VIDEOS.length];
+
     return (
         <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-brand selection:text-white">
             <Helmet>
@@ -126,7 +146,7 @@ const DynamicLanding: React.FC = () => {
                     <div className="relative mx-auto lg:mr-0 w-[280px] md:w-[320px] aspect-[9/16] bg-stone-800 rounded-2xl overflow-hidden shadow-2xl border border-stone-700 rotate-3 hover:rotate-0 transition-transform duration-500 group">
                         <video
                             ref={el => videoRefs.current[0] = el}
-                            src={VIRAL_VIDEOS[0]}
+                            src={primaryVideo}
                             className="w-full h-full object-cover"
                             loop
                             playsInline
@@ -230,7 +250,7 @@ const DynamicLanding: React.FC = () => {
                                 <div className="relative w-full aspect-[9/16] bg-black rounded-lg overflow-hidden border border-stone-700 cursor-pointer" onClick={() => togglePlay(1)}>
                                     <video
                                         ref={el => videoRefs.current[1] = el}
-                                        src={VIRAL_VIDEOS[1]}
+                                        src={secondaryVideo}
                                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                                         loop
                                         playsInline
@@ -290,7 +310,7 @@ const DynamicLanding: React.FC = () => {
 
                     {/* PORTFOLIO GRID */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {GALLERY_IMAGES.slice(0, 8).map((img, i) => (
+                        {uniqueGallery.map((img, i) => (
                             <Reveal key={i} delay={i * 0.1}>
                                 <div className="aspect-square relative overflow-hidden rounded-lg group cursor-pointer border border-stone-800">
                                     <img
