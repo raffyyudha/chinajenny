@@ -130,7 +130,7 @@ ALL_LOCATIONS.forEach(location => {
 console.log(`✅ Total URLs Generated: ${urls.length}`);
 
 // SPLIT SITEMAPS IF > 45,000 URLs (Google Limit is 50k, safe margin)
-const CHUNK_SIZE = 45000;
+const CHUNK_SIZE = 25000;
 const chunks = [];
 
 for (let i = 0; i < urls.length; i += CHUNK_SIZE) {
