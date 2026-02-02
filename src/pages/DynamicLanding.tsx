@@ -21,6 +21,7 @@ const DynamicLanding: React.FC = () => {
 
     const [isVideoPlaying, setIsVideoPlaying] = useState<number | null>(null); // Index of playing video
     const [isMuted, setIsMuted] = useState(true);
+    const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
     const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
     const togglePlay = (index: number) => {
@@ -288,27 +289,25 @@ const DynamicLanding: React.FC = () => {
                         </Reveal>
                     </div>
 
-                    {/* FEATURED 3D TOUR EMBED */}
+                    {/* FEATURED 3D TOUR EMBED - CLICK TO POPUP */}
                     <Reveal>
-                        <div className="relative w-full aspect-[16/9] bg-black rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-8 z-10">
-                            <iframe
-                                src={GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"}
-                                className="w-full h-full border-0 pointer-events-auto relative z-20"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                loading="lazy"
-                                title={`3D Tour for ${locationName}`}
+                        <div
+                            onClick={() => setLightboxSrc(GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M")}
+                            className="relative w-full aspect-[16/9] bg-stone-800 rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-20 cursor-pointer group"
+                        >
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 flex flex-col items-center justify-center text-center p-6">
+                                <Box size={64} className="text-brand mb-4 animate-bounce" />
+                                <h3 className="text-3xl md:text-5xl font-serif text-white mb-2 shadow-black drop-shadow-lg">Interactive 3D Walkthrough</h3>
+                                <p className="text-stone-300 max-w-sm">Explore the {locationName} premium layout in immersive 3D space. Click to launch the experience.</p>
+                                <div className="mt-8 px-8 py-3 bg-brand text-stone-900 font-bold rounded-full transform group-hover:scale-110 transition-transform shadow-xl">
+                                    Enter 3D Space
+                                </div>
+                            </div>
+                            <img
+                                src={GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.src || "/luxury-result.webp"}
+                                className="w-full h-full object-cover blur-[2px] opacity-60"
+                                alt="3D Preview"
                             />
-                        </div>
-                        <div className="flex justify-center mb-20">
-                            <Button
-                                onClick={() => window.open(GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M", '_blank')}
-                                variant="outline"
-                                className="group border-brand text-brand hover:bg-brand hover:text-stone-900 z-30 relative"
-                            >
-                                <Box className="mr-2 group-hover:rotate-12 transition-transform" size={18} />
-                                Open Full Screen 3D Experience (HD)
-                            </Button>
                         </div>
                     </Reveal>
 
@@ -411,8 +410,47 @@ const DynamicLanding: React.FC = () => {
                     Chat with Jenny
                 </span>
             </a>
+            {/* LIGHTBOX FOR 3D TOUR */}
+            <AnimatePresence>
+                {lightboxSrc && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12"
+                    >
+                        <button
+                            onClick={() => setLightboxSrc(null)}
+                            className="absolute top-6 right-6 text-white hover:text-brand z-[110] transition-colors p-2 bg-black/50 rounded-full"
+                        >
+                            <X size={32} />
+                        </button>
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="w-full h-full max-w-[1600px] overflow-hidden rounded-xl shadow-2xl relative"
+                        >
+                            <iframe
+                                src={lightboxSrc}
+                                className="w-full h-full border-0"
+                                allowFullScreen
+                                title="3D VR Tour"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
+
+// --- HELPER COMPONENT: CLOSE ICON ---
+const X = ({ size = 24 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+);
 
 export default DynamicLanding;
