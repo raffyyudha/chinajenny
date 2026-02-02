@@ -98,7 +98,7 @@ const SERVICES = [
     { slug: "feng-shui-audit", name: "Feng Shui Interior Audit" }
 ];
 
-const DOMAIN = "https://booking.blessspace.org";
+const DOMAIN = "https://booking.blesspace.org";
 
 console.log(`🚀 Generating Sitemap for ${ALL_LOCATIONS.length} locations x ${SERVICES.length} services...`);
 
