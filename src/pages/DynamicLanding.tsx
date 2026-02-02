@@ -288,15 +288,25 @@ const DynamicLanding: React.FC = () => {
                     </div>
 
                     <div className="columns-2 md:columns-4 lg:columns-5 gap-8 text-xs leading-loose">
-                        {SINGAPORE_LOCATIONS.map((loc, i) => (
-                            <Link
-                                key={i}
-                                to={`/sg/${serviceSlug}/${loc.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`}
-                                className="block hover:text-brand transition-colors whitespace-nowrap overflow-hidden text-ellipsis"
-                            >
-                                {loc} {serviceName}
-                            </Link>
-                        ))}
+                        <div className="columns-2 md:columns-4 lg:columns-5 gap-8 text-xs leading-loose">
+                            {/* DYNAMIC NEARBY AREAS (Simulated via Seed) - Max 15 links to avoid spam */}
+                            {SINGAPORE_LOCATIONS
+                                .filter((_, idx) => {
+                                    // Pseudo-random selection based on location seed to keep links stable per page but different across pages
+                                    const pseudoRandom = (seed + idx) % SINGAPORE_LOCATIONS.length;
+                                    return pseudoRandom % 10 === 0; // Take roughly 10% or limit logic below
+                                })
+                                .slice(0, 15) // HARD LIMIT 15 LINKS for safety
+                                .map((loc, i) => (
+                                    <Link
+                                        key={i}
+                                        to={`/sg/${serviceSlug}/${loc.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`}
+                                        className="block hover:text-brand transition-colors whitespace-nowrap overflow-hidden text-ellipsis"
+                                    >
+                                        {loc} {serviceName}
+                                    </Link>
+                                ))}
+                        </div>
                     </div>
 
                     <div className="mt-12 pt-12 border-t border-stone-800 text-center">
