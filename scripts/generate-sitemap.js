@@ -112,13 +112,18 @@ urls.push(
     `${DOMAIN}/contact`
 );
 
-// 2. Generate PSEO Routes
+// 2. Generate PSEO Routes (English & Chinese)
 ALL_LOCATIONS.forEach(location => {
     SERVICES.forEach(service => {
         // Normalize slugs
         const locSlug = location.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-        const url = `${DOMAIN}/sg/${service.slug}/${locSlug}`;
-        urls.push(url);
+
+        // English URL
+        urls.push(`${DOMAIN}/sg/${service.slug}/${locSlug}`);
+
+        // Chinese URL (Targeting Mandarin Speakers in SG)
+        // Format: /zh-sg/service/location (We will handle this route in App.tsx)
+        urls.push(`${DOMAIN}/zh-sg/${service.slug}/${locSlug}`);
     });
 });
 

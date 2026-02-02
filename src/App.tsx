@@ -22,8 +22,11 @@ const App: React.FC = () => {
                     <Route path="/" element={<Home />} />
 
                     {/* PSEO ROUTES */}
-                    {/* Pattern: /sg/[service-slug]/[location-slug] */}
+                    {/* PSEO ROUTES - ENGLISH */}
                     <Route path="/sg/:service/:location" element={<DynamicLanding />} />
+
+                    {/* PSEO ROUTES - CHINESE */}
+                    <Route path="/zh-sg/:service/:location" element={<DynamicLanding />} />
 
                     {/* Fallback to Home or 404 */}
                     <Route path="*" element={<Home />} />

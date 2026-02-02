@@ -2,10 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://booking.blesspace.org/sitemap-1.xml</loc>
-    <lastmod>2026-02-02T11:48:29.092Z</lastmod>
+    <lastmod>2026-02-02T12:39:52.616Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://booking.blesspace.org/sitemap-2.xml</loc>
-    <lastmod>2026-02-02T11:48:29.092Z</lastmod>
+    <lastmod>2026-02-02T12:39:52.616Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://booking.blesspace.org/sitemap-3.xml</loc>
+    <lastmod>2026-02-02T12:39:52.616Z</lastmod>
   </sitemap>
 </sitemapindex>
