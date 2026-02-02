@@ -50,13 +50,25 @@ const BASE_LOCATIONS = [
 
 const GENERATED_LOCATIONS = [];
 BASE_LOCATIONS.forEach(loc => {
-    // Generate Street 1 to Street 50
-    for (let i = 1; i <= 50; i++) {
+    // Generate Street 1 to Street 65 (Common in HDB towns)
+    for (let i = 1; i <= 65; i++) {
         GENERATED_LOCATIONS.push(`${loc} Street ${i}`);
     }
-    // Generate Avenue 1 to Avenue 10
-    for (let i = 1; i <= 10; i++) {
+    // Generate Avenue 1 to Avenue 15
+    for (let i = 1; i <= 15; i++) {
         GENERATED_LOCATIONS.push(`${loc} Avenue ${i}`);
+    }
+    // Generate Drive 1 to Drive 20
+    for (let i = 1; i <= 20; i++) {
+        GENERATED_LOCATIONS.push(`${loc} Drive ${i}`);
+    }
+    // Generate Crescent 1 to Crescent 10
+    for (let i = 1; i <= 10; i++) {
+        GENERATED_LOCATIONS.push(`${loc} Crescent ${i}`);
+    }
+    // Generate Lane 1 to Lane 10 (For landed/mixed areas)
+    for (let i = 1; i <= 10; i++) {
+        GENERATED_LOCATIONS.push(`${loc} Lane ${i}`);
     }
 });
 
