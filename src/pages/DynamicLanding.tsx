@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SINGAPORE_LOCATIONS, SERVICES, VIRAL_VIDEOS, DESIGN_STYLES } from '../data/singapore_pseo';
 import { GALLERY_IMAGES } from '../constants';
@@ -46,7 +46,9 @@ const DynamicLanding: React.FC = () => {
 
     // --- SEO METADATA ---
     const pageTitle = `${serviceName} in ${locationName} | Jenny Sin Internal Design`;
-    const metaDesc = `Exclusive ${serviceName} packages for ${locationName} residents. See our 2025 Japandi & Wabi-Sabi portfolios. 100% MCST/HDB Compliant Renovation.`;
+    const metaDesc = isChinese
+        ? `专为 ${locationName} 居民提供的独家 ${serviceName} 设计配套。查看我们的 2025 Japandi & Wabi-Sabi 产品组合。100% 遵守 MCST/HDB 装修规定。`
+        : `Exclusive ${serviceName} packages for ${locationName} residents. See our 2025 Japandi & Wabi-Sabi portfolios. 100% MCST/HDB Compliant Renovation.`;
 
     // --- DYNAMIC CONTENT SEEDS ---
     // Generate deterministic random based on combined slugs to ensure unique per URL
@@ -76,13 +78,21 @@ const DynamicLanding: React.FC = () => {
     const selectedStyles = shuffleWithSeed(DESIGN_STYLES, seed).slice(0, 3);
     const layoutVariation = seed % 2 === 0; // Toggle layout sides
 
-    const introTemplates = [
+    const introTemplatesEn = [
         `Welcome to the future of ${serviceName} at ${locationName}. We specialize in creating high-end, bespoke environments.`,
         `Thinking of a transformation for your property at ${locationName}? Our ${serviceName} experts bring years of experience.`,
         `At ${locationName}, luxury meets functionality. Our ${serviceName} team is dedicated to perfecting every square inch.`,
         `Elevate your living standard in ${locationName}. Discover how our ${serviceName} solutions outperform traditional contractors.`
     ];
-    const introText = introTemplates[seed % introTemplates.length];
+
+    const introTemplatesZh = [
+        `欢迎来到 ${locationName} 的 ${serviceName} 未来体验。我们专注于打造高端定制的居住环境。`,
+        `正在考虑改造您在 ${locationName} 的房产吗？我们的 ${serviceName} 专家拥有多年的丰富经验。`,
+        `在 ${locationName}，奢华与功能完美融合。我们的 ${serviceName} 团队致力于打磨每一寸空间。`,
+        `提升您在 ${locationName} 的生活品质。了解我们的 ${serviceName} 解决方案如何超越传统承包商。`
+    ];
+
+    const introText = isChinese ? introTemplatesZh[seed % introTemplatesZh.length] : introTemplatesEn[seed % introTemplatesEn.length];
 
     return (
         <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-brand selection:text-white">
@@ -102,10 +112,10 @@ const DynamicLanding: React.FC = () => {
                         <span className="font-serif text-xl tracking-widest hidden md:block">BLESSSPACE</span>
                     </Link>
                     <div className="flex items-center gap-4">
-                        <span className="hidden md:block text-xs text-stone-400 uppercase tracking-widest">Specialist for {locationName}</span>
+                        <span className="hidden md:block text-xs text-stone-400 uppercase tracking-widest">{isChinese ? `专为 ${locationName} 服务` : `Specialist for ${locationName}`}</span>
                         <a href="/#reservation">
                             <Button variant="primary" className="text-xs md:text-sm !py-2">
-                                Get Quote
+                                {isChinese ? "获取报价" : "Get Quote"}
                             </Button>
                         </a>
                     </div>
@@ -128,21 +138,21 @@ const DynamicLanding: React.FC = () => {
                                 <span className="text-brand uppercase tracking-widest text-xs font-bold">{locationName} Edition</span>
                             </div>
                             <h1 className="text-5xl md:text-7xl xl:text-8xl font-serif mb-6 leading-[0.9] tracking-tight">
-                                {serviceName} <br />
-                                <span className="text-brand italic text-4xl md:text-6xl font-light block mt-2">Specifically for {locationName}</span>
+                                {isChinese ? "看到未来。" : "See The Future."} <br />
+                                <span className="text-brand italic text-4xl md:text-6xl font-light block mt-2">{isChinese ? `专属于 ${locationName}` : `Specifically for ${locationName}`}</span>
                             </h1>
                             <p className="text-lg md:text-xl text-stone-300 max-w-xl mb-10 font-light leading-relaxed">
-                                {introText} We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at {locationName} before you pay a deposit.
+                                {introText} {isChinese ? `我们利用数字孪生技术，在您支付定金之前即可看到 ${locationName} 的精确单元布局。` : `We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at ${locationName} before you pay a deposit.`}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <a href="/#reservation" className="w-full sm:w-auto">
                                     <Button className="bg-brand text-stone-900 hover:bg-white w-full">
-                                        View 3D Concepts for {locationName}
+                                        {isChinese ? `查看 ${locationName} 的 3D 概念` : `View 3D Concepts for ${locationName}`}
                                     </Button>
                                 </a>
                                 <a href="/#reservation" className="w-full sm:w-auto">
                                     <Button variant="outline" className="w-full">
-                                        Check Availability
+                                        {isChinese ? "检查空档期" : "Check Availability"}
                                     </Button>
                                 </a>
                             </div>
