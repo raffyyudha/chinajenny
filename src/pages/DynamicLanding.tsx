@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { SINGAPORE_LOCATIONS, SERVICES, VIRAL_VIDEOS } from '../data/singapore_pseo';
+import { SINGAPORE_LOCATIONS, SERVICES, VIRAL_VIDEOS, DESIGN_STYLES } from '../data/singapore_pseo';
 import { GALLERY_IMAGES } from '../constants';
 import { Button } from '../components/ui/Button';
 import { Reveal } from '../components/Reveal';
@@ -49,29 +49,40 @@ const DynamicLanding: React.FC = () => {
     const metaDesc = `Exclusive ${serviceName} packages for ${locationName} residents. See our 2025 Japandi & Wabi-Sabi portfolios. 100% MCST/HDB Compliant Renovation.`;
 
     // --- DYNAMIC CONTENT SEEDS ---
-    // Generate deterministic random based on string char codes
-    const seed = locationName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    // Generate deterministic random based on combined slugs to ensure unique per URL
+    const combinedString = `${serviceSlug}-${locationSlug}`;
+    const seed = combinedString.split('').reduce((acc, char, i) => acc + char.charCodeAt(0) * (i + 1), 0);
+
     const isCondo = locationName.includes("Residences") || locationName.includes("Park") || locationName.includes("Suites") || locationName.includes("Condo") || !locationName.includes("Punggol") && !locationName.includes("HDB");
 
     // Deterministic Shuffle Function (Fisher-Yates)
     const shuffleWithSeed = <T,>(array: T[], seed: number): T[] => {
         const shuffled = [...array];
-        let m = shuffled.length, t, i;
-        while (m) {
-            i = Math.floor((seed % m) * m / m); // Simple pseudo-random
-            m--;
-            seed = (seed * 9301 + 49297) % 233280; // Pseudo-random generator step
-            t = shuffled[m];
-            shuffled[m] = shuffled[i];
-            shuffled[i] = t;
+        let currentSeed = seed;
+        for (let m = shuffled.length - 1; m > 0; m--) {
+            currentSeed = (currentSeed * 9301 + 49297) % 233280;
+            const i = Math.floor((currentSeed / 233280) * (m + 1));
+            [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
         }
         return shuffled;
     };
 
-    // Randomize Content based on Seed so every page looks different
+    // Randomize Content based on Seed so every single URL is different
     const uniqueGallery = shuffleWithSeed(GALLERY_IMAGES, seed).slice(0, 8);
     const primaryVideo = VIRAL_VIDEOS[seed % VIRAL_VIDEOS.length];
     const secondaryVideo = VIRAL_VIDEOS[(seed + 1) % VIRAL_VIDEOS.length];
+
+    // Dynamic Text Variations
+    const selectedStyles = shuffleWithSeed(DESIGN_STYLES, seed).slice(0, 3);
+    const layoutVariation = seed % 2 === 0; // Toggle layout sides
+
+    const introTemplates = [
+        `Welcome to the future of ${serviceName} at ${locationName}. We specialize in creating high-end, bespoke environments.`,
+        `Thinking of a transformation for your property at ${locationName}? Our ${serviceName} experts bring years of experience.`,
+        `At ${locationName}, luxury meets functionality. Our ${serviceName} team is dedicated to perfecting every square inch.`,
+        `Elevate your living standard in ${locationName}. Discover how our ${serviceName} solutions outperform traditional contractors.`
+    ];
+    const introText = introTemplates[seed % introTemplates.length];
 
     return (
         <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-brand selection:text-white">
@@ -119,7 +130,7 @@ const DynamicLanding: React.FC = () => {
                                 <span className="text-brand italic text-4xl md:text-6xl font-light block mt-2">Specifically for {locationName}</span>
                             </h1>
                             <p className="text-lg md:text-xl text-stone-300 max-w-xl mb-10 font-light leading-relaxed">
-                                Avoid renovation nightmares. We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at {locationName} before you pay a deposit.
+                                {introText} We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at {locationName} before you pay a deposit.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <Button className="bg-brand text-stone-900 hover:bg-white w-full sm:w-auto">
@@ -146,7 +157,7 @@ const DynamicLanding: React.FC = () => {
                     {/* VIRAL VIDEO CARD - TIKTOK EMBED STYLE */}
                     <div className="relative mx-auto lg:mr-0 w-[280px] md:w-[320px] aspect-[9/16] bg-stone-800 rounded-2xl overflow-hidden shadow-2xl border border-stone-700 rotate-3 hover:rotate-0 transition-transform duration-500 group">
                         <video
-                            ref={el => videoRefs.current[0] = el}
+                            ref={el => { videoRefs.current[0] = el; }}
                             src={primaryVideo}
                             className="w-full h-full object-cover"
                             loop
@@ -240,7 +251,7 @@ const DynamicLanding: React.FC = () => {
                                     </div>
                                     <h3 className="text-3xl font-serif mb-4">Modern Feng Shui & Aesthetics</h3>
                                     <p className="text-stone-400 text-sm mb-6 leading-relaxed">
-                                        "For {locationName}, I recommend a fusion of warm minimalism and functional luxury. Watch my explanation on how to maximize Qi flow in this specific layout type."
+                                        "For {locationName}, I recommend a fusion of {selectedStyles.join(' and ')}. Watch my explanation on how to maximize Qi flow in this specific layout type."
                                     </p>
                                     <Button className="bg-white text-stone-900 hover:bg-stone-200 w-full text-xs">
                                         Connect on WeChat / WhatsApp
@@ -248,9 +259,9 @@ const DynamicLanding: React.FC = () => {
                                 </div>
 
                                 {/* SECOND VIDEO EMBED */}
-                                <div className="relative w-full aspect-[9/16] bg-black rounded-lg overflow-hidden border border-stone-700 cursor-pointer" onClick={() => togglePlay(1)}>
+                                <div className={`relative w-full aspect-[9/16] bg-black rounded-lg overflow-hidden border border-stone-800 cursor-pointer ${layoutVariation ? 'md:order-last' : ''}`} onClick={() => togglePlay(1)}>
                                     <video
-                                        ref={el => videoRefs.current[1] = el}
+                                        ref={el => { videoRefs.current[1] = el; }}
                                         src={secondaryVideo}
                                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                                         loop
