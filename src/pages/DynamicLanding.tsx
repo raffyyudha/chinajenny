@@ -103,9 +103,11 @@ const DynamicLanding: React.FC = () => {
                     </Link>
                     <div className="flex items-center gap-4">
                         <span className="hidden md:block text-xs text-stone-400 uppercase tracking-widest">Specialist for {locationName}</span>
-                        <Button variant="primary" className="text-xs md:text-sm !py-2">
-                            Get Quote
-                        </Button>
+                        <a href="/#reservation">
+                            <Button variant="primary" className="text-xs md:text-sm !py-2">
+                                Get Quote
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </header>
@@ -133,12 +135,16 @@ const DynamicLanding: React.FC = () => {
                                 {introText} We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at {locationName} before you pay a deposit.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <Button className="bg-brand text-stone-900 hover:bg-white w-full sm:w-auto">
-                                    View 3D Concepts for {locationName}
-                                </Button>
-                                <Button variant="outline" className="w-full sm:w-auto">
-                                    Check Availability
-                                </Button>
+                                <a href="/#reservation" className="w-full sm:w-auto">
+                                    <Button className="bg-brand text-stone-900 hover:bg-white w-full">
+                                        View 3D Concepts for {locationName}
+                                    </Button>
+                                </a>
+                                <a href="/#reservation" className="w-full sm:w-auto">
+                                    <Button variant="outline" className="w-full">
+                                        Check Availability
+                                    </Button>
+                                </a>
                             </div>
 
                             <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-stone-500 text-sm font-medium">
