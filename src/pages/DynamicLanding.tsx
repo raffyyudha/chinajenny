@@ -290,10 +290,11 @@ const DynamicLanding: React.FC = () => {
 
                     {/* FEATURED 3D TOUR EMBED */}
                     <Reveal>
-                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-black rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-8 group">
+                        <div className="relative w-full aspect-[16/9] bg-black rounded-2xl overflow-hidden shadow-2xl border border-stone-800 mb-8 z-10">
                             <iframe
                                 src={GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M"}
-                                className="w-full h-full border-0"
+                                className="w-full h-full border-0 pointer-events-auto relative z-20"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen
                                 loading="lazy"
                                 title={`3D Tour for ${locationName}`}
@@ -303,10 +304,10 @@ const DynamicLanding: React.FC = () => {
                             <Button
                                 onClick={() => window.open(GALLERY_IMAGES[seed % GALLERY_IMAGES.length]?.embedUrl || "https://www.kujiale.com/design/3FO3ILOKW277/show?friendid=3FO4JDNVIK6M", '_blank')}
                                 variant="outline"
-                                className="group border-brand text-brand hover:bg-brand hover:text-stone-900"
+                                className="group border-brand text-brand hover:bg-brand hover:text-stone-900 z-30 relative"
                             >
                                 <Box className="mr-2 group-hover:rotate-12 transition-transform" size={18} />
-                                Open Full Screen 3D Experience
+                                Open Full Screen 3D Experience (HD)
                             </Button>
                         </div>
                     </Reveal>
