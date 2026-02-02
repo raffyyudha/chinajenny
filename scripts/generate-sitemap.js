@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,12 +5,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// --- MASSIVE DATASET FOR 100K TARGET ---
-
-// 1. FIXED LOCATIONS (Luxury Condos & Areas)
-const BASE_LOCATIONS = [
-    "Orchard Road", "Tanglin Road", "Newton Circus", "River Valley Road", "Bukit Timah Road", "Holland Village",
-    "Novena", "Thomson", "Balestier", "Marina Bay", "Sentosa Cove", "Tanjong Pagar", "Keppel Bay",
+// DATA SOURCE (HARDCODED FOR SCRIPT SIMPLICITY)
+const SINGAPORE_LOCATIONS = [
+    // --- TIER 1: ULTRA LUXURY CONDOS (Orchard, Tanglin, Sentosa) ---
     "The Marq on Paterson Hill", "Les Maisons Nassim", "Wallich Residence", "Boulevard 88",
     "Sculptura Ardmore", "Le Nouvel Ardmore", "TwentyOne Angullia Park", "Reignwood Hamilton Scotts",
     "3 Orchard By-The-Park", "Nouvel 18", "Skyline @ Orchard Boulevard", "New Futura",
@@ -19,154 +15,136 @@ const BASE_LOCATIONS = [
     "Park Nova", "Klimt Cairnhill", "Perfect Ten", "Dalvey Haus", "The Nassim",
     "Seven Palms Sentosa Cove", "The Oceanfront @ Sentosa", "Cape Royale", "Turquoise",
     "Seascape", "Marina Collection", "Reflections at Keppel Bay", "Corals at Keppel Bay",
+
+    // --- TIER 2: PRIME DISTRICT CONDOS (D9, D10, D11, D01, D02) ---
     "Marina One Residences", "The Sail @ Marina Bay", "V on Shenton", "One Shenton",
     "Duo Residences", "South Beach Residences", "Midtown Modern", "Midtown Bay",
     "Martin Modern", "Riverdale Residence", "Centennia Suites", "Cosmopolitan",
     "Trilight", "Newton Suites", "L'Viv", "Espada", "OUE Twin Peaks", "The Avenir",
     "Riviere", "Canninghill Piers", "Irwell Hill Residences", "Kopar at Newton",
     "Pullman Residences", "Neu at Novena", "Fyve Derbyshire", "35 Gilstead", "Dunearn 386",
+
+    // --- TIER 3: POPULAR MASS MARKET CONDOS (High Renovation Volume) ---
     "D'Leedon", "Interlace", "Florence Residences", "Treasure at Tampines", "Parc Clematis",
     "Jadescape", "Riverfront Residences", "Affinity at Serangoon", "Stirling Residences",
     "Park Colonial", "Woodleigh Residences", "Parc Estes", "Sims Urban Oasis",
     "Principal Garden", "Commonwealth Towers", "Queens Peak", "Margaret Ville",
     "Seaside Residences", "Coastline Residences", "Amber Park", "Nyon", "Meyer Mansion",
-    "Tengah Plantation", "Bidadari Park", "Canberra", "Lentor Modern", "Beauty World",
-    "Normanton Park", "One North", "Dover", "Ghim Moh", "Holland Drive", "Empress Road",
-    "Farrer Road", "Queensway", "Alexandra Road", "Tiong Bahru", "Redhill", "Telok Blangah",
-    "Harbourfront", "Pasir Panjang", "West Coast", "Pandan Valley", "Mount Sinai",
-    "Sixth Avenue", "King Albert Park", "Hillview", "Dairy Farm", "Chestnut Drive",
-    "Upper Bukit Timah", "Hume Avenue", "Springleaf", "Mandai", "Tagore", "Yio Chu Kang",
-    "Seletar", "Jalan Kayu", "Fernvale", "Anchorvale", "Compassvale", "Rivervale",
-    "Punggol Field", "Punggol Central", "Punggol Way", "Punggol Walk", "Punggol Place",
-    "Sumang", "Nibong", "Soo Teck", "Cheng Lim", "Damai", "Oasis", "Kadaloor", "Riviera",
-    "Coral Edge", "Meridian", "Rumbia", "Bakau", "Kangkar", "Ranggung", "Renjong"
+
+    // --- TIER 4: HDB ESTATES (BTO & Resale Hubs) ---
+    "Punggol Point Woods", "Punggol Northshore", "Bidadari Park", "Alkaff Oasis",
+    "Tampines GreenVerge", "Tampines GreenCourt", "Clementi NorthArc", "Clementi Peaks",
+    "Dawson SkyVille", "Dawson SkyTerrace", "Pinnacle @ Duxton", "Telok Blangah ParcView",
+    "Ghim Moh Edge", "Toa Payoh Crest", "Toa Payoh Apex", "Boon Keng Vistra",
+    "Kallang Trivista", "MacPherson Spring", "Bedok South Horizon", "Chai Chee Green",
+    "Jurong West Jewel", "Boon Lay Glade", "Tengah Plantation", "Tengah Garden"
 ];
 
-// 2. GENERATE MASSIVE HDB STREETS & AVENUES (Singapore Pattern)
+// GENERATE 5000+ HDB STREETS & AVENUES
+const BASE_LOCATIONS = [
+    "Bedok", "Tampines", "Jurong West", "Woodlands", "Sengkang", "Yishun",
+    "Choa Chu Kang", "Hougang", "Punggol", "Ang Mo Kio", "Bukit Batok", "Bukit Panjang",
+    "Pasir Ris", "Bukit Merah", "Serangoon", "Toa Payoh", "Geylang", "Kallang",
+    "Queenstown", "Clementi", "Bishan", "Sembawang", "Jurong East", "Novena", "Marine Parade"
+];
+
 const GENERATED_LOCATIONS = [];
-const ESTATES = [
-    "Ang Mo Kio", "Bedok", "Bishan", "Bukit Batok", "Bukit Merah",
-    "Bukit Panjang", "Choa Chu Kang", "Clementi", "Geylang", "Hougang",
-    "Jurong East", "Jurong West", "Pasir Ris", "Punggol", "Queenstown",
-    "Sembawang", "Sengkang", "Serangoon", "Tampines", "Toa Payoh",
-    "Woodlands", "Yishun"
-];
-
-ESTATES.forEach(estate => {
-    // Generate Avenue 1-15
-    for (let i = 1; i <= 15; i++) {
-        GENERATED_LOCATIONS.push(`${estate} Avenue ${i}`);
+BASE_LOCATIONS.forEach(loc => {
+    // Generate Street 1 to Street 50
+    for (let i = 1; i <= 50; i++) {
+        GENERATED_LOCATIONS.push(`${loc} Street ${i}`);
     }
-    // Generate Street 11-91 (Common HDB patterns)
-    for (let i = 11; i <= 91; i += 2) { // Skip some to be organic
-        GENERATED_LOCATIONS.push(`${estate} Street ${i}`);
+    // Generate Avenue 1 to Avenue 10
+    for (let i = 1; i <= 10; i++) {
+        GENERATED_LOCATIONS.push(`${loc} Avenue ${i}`);
     }
-    // Generate Ring Road / Central specific
-    GENERATED_LOCATIONS.push(`${estate} Ring Road`);
-    GENERATED_LOCATIONS.push(`${estate} Central`);
-    GENERATED_LOCATIONS.push(`${estate} North`);
 });
 
-// 3. COMBINE ALL
-const ALL_LOCATIONS = [...BASE_LOCATIONS, ...GENERATED_LOCATIONS];
+const ALL_LOCATIONS = [...SINGAPORE_LOCATIONS, ...GENERATED_LOCATIONS];
 
-// 4. STRATEGIES
 const SERVICES = [
-    "interior-design", "renovation", "3d-rendering", "hdb-renovation",
-    "condo-renovation", "landed-property-design", "commercial-interior",
-    "kitchen-renovation", "bathroom-renovation" // Promoted to top level for multiplier
+    // --- CORE SERVICES (DESIGN + BUILD) ---
+    { slug: "interior-design", name: "Luxury Interior Design" },
+    { slug: "renovation-contractor", name: "Direct Renovation Contractor" }, // NEW
+    { slug: "renovation", name: "Premium Home Renovation" },
+    { slug: "resale-renovation", name: "Resale Condo/HDB Renovation" }, // NEW
+    { slug: "bto-renovation", name: "BTO Renovation Package" }, // NEW
+    { slug: "wet-works", name: "Wet Works & Tiling Specialist" }, // NEW
+    { slug: "carpentry", name: "Custom Carpentry & Joinery" }, // NEW
+    { slug: "3d-rendering", name: "Photorealistic 3D Rendering" },
+    { slug: "condo-styling", name: "Condo Interior Styling" },
+    { slug: "hdb-transformation", name: "HDB Flat Transformation" },
+
+    // --- NICHE SERVICES (Long tail) ---
+    { slug: "kitchen-overhaul", name: "Kitchen Renovation & Overhaul" },
+    { slug: "luxury-bathroom", name: "Toilet & Bathroom Renovation" },
+    { slug: "hack-and-build", name: "Hacking & Masonry Works" }, // NEW
+    { slug: "walk-in-wardrobe", name: "Bespoke Walk-In Wardrobe" },
+    { slug: "home-office", name: "Productive Home Office Setup" },
+    { slug: "smart-home", name: "Integrated Smart Home Renovation" },
+    { slug: "minimalist-makeover", name: "Minimalist Makeover" },
+    { slug: "feng-shui-audit", name: "Feng Shui Interior Audit" }
 ];
 
-const STYLES = [
-    "japandi", "wabi-sabi", "minimalist", "luxury", "modern-classic",
-    "industrial", "scandinavian", "contemporary", "hotel-style", "victorian",
-    "retro", "art-deco", "bohemian", "mid-century-modern", "resort-style", "zen"
-];
+const DOMAIN = "https://booking.blessspace.org";
 
-const UNIT_TYPES = [
-    "2-bedroom", "3-bedroom", "4-bedroom", "5-bedroom", "penthouse",
-    "dual-key", "studio", "maisonette", "executive-apartment", "jumbo-flat"
-];
+console.log(`🚀 Generating Sitemap for ${ALL_LOCATIONS.length} locations x ${SERVICES.length} services...`);
 
-// GENERATE URLs
 let urls = [];
 
-console.log(`Generating URLs for ${ALL_LOCATIONS.length} unique locations...`);
+// 1. Static Routes
+urls.push(
+    `${DOMAIN}/`,
+    `${DOMAIN}/pricing`,
+    `${DOMAIN}/portfolio`,
+    `${DOMAIN}/contact`
+);
 
-ALL_LOCATIONS.forEach(loc => {
-    const locSlug = loc.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-
-    // 1. CORE SERVICES (e.g. /sg/interior-design/location)
+// 2. Generate PSEO Routes
+ALL_LOCATIONS.forEach(location => {
     SERVICES.forEach(service => {
-        urls.push(`https://booking.blesspace.org/sg/${service}/${locSlug}`);
-    });
-
-    // 2. UNIT TYPE DEEP LINKS (e.g. /sg/interior-design/location-penthouse)
-    // Applied primarily to main services to avoid overload
-    ["interior-design", "renovation"].forEach(service => {
-        UNIT_TYPES.forEach(unit => {
-            urls.push(`https://booking.blesspace.org/sg/${service}/${locSlug}-${unit}`);
-        });
-    });
-
-    // 3. STYLE PERMUTATIONS (e.g. /sg/japandi-interior-design/location)
-    STYLES.forEach(style => {
-        urls.push(`https://booking.blesspace.org/sg/${style}-interior-design/${locSlug}`);
+        // Normalize slugs
+        const locSlug = location.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        const url = `${DOMAIN}/sg/${service.slug}/${locSlug}`;
+        urls.push(url);
     });
 });
 
-console.log(`Generated ${urls.length} unique PSEO URLs.`);
+console.log(`✅ Total URLs Generated: ${urls.length}`);
 
-// XML SITEMAP SPLITTING (GOOGLE LIMIT IS 50K URLS PER SITEMAP)
-// We will generate multiple sitemaps and a sitemap index.
+// SPLIT SITEMAPS IF > 45,000 URLs (Google Limit is 50k, safe margin)
+const CHUNK_SIZE = 45000;
+const chunks = [];
 
-if (urls.length > 50000) {
-    console.log("URL count exceeds 50,000. Configuring sitemap index...");
-    const chunks = [];
-    while (urls.length > 0) {
-        chunks.push(urls.splice(0, 45000));
-    }
+for (let i = 0; i < urls.length; i += CHUNK_SIZE) {
+    chunks.push(urls.slice(i, i + CHUNK_SIZE));
+}
 
-    chunks.forEach((chunk, index) => {
-        const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+// Generate Individual Sitemap Files
+chunks.forEach((chunk, index) => {
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${chunk.map(url => `
-  <url>
+${chunk.map(url => `  <url>
     <loc>${url}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('')}
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${url.length < 50 ? '1.0' : '0.8'}</priority>
+  </url>`).join('\n')}
 </urlset>`;
-        fs.writeFileSync(path.resolve(__dirname, `../public/sitemap-${index + 1}.xml`), sitemapContent);
-        console.log(`Written public/sitemap-${index + 1}.xml`);
-    });
 
-    // CREATE SITEMAP INDEX
-    const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+    const fileName = `sitemap-${index + 1}.xml`;
+    fs.writeFileSync(path.resolve(__dirname, `../public/${fileName}`), sitemapContent);
+    console.log(`📄 Created ${fileName} with ${chunk.length} URLs`);
+});
+
+// Generate Sitemap Index
+const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${chunks.map((_, i) => `
-    <sitemap>
-        <loc>https://booking.blesspace.org/sitemap-${i + 1}.xml</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-    </sitemap>`).join('')}
+${chunks.map((_, index) => `  <sitemap>
+    <loc>${DOMAIN}/sitemap-${index + 1}.xml</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </sitemap>`).join('\n')}
 </sitemapindex>`;
 
-    fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemapIndex);
-    console.log("Written sitemap index to public/sitemap.xml");
-
-} else {
-    // SINGLE FILE FALLBACK
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${urls.map(url => `
-  <url>
-    <loc>${url}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('')}
-</urlset>`;
-
-    fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemap);
-}
+fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemapIndex);
+console.log(`🎉 Sitemap Index Generated: sitemap.xml linking to ${chunks.length} sitemaps.`);

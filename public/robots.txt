@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://booking.blesspace.org/sitemap.xml
+Sitemap: https://blessspace.com/sitemap.xml
