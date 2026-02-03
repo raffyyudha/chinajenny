@@ -75,27 +75,18 @@ BASE_LOCATIONS.forEach(loc => {
 const ALL_LOCATIONS = [...SINGAPORE_LOCATIONS, ...GENERATED_LOCATIONS];
 
 const SERVICES = [
-    // --- CORE SERVICES (DESIGN + BUILD) ---
-    { slug: "interior-design", name: "Luxury Interior Design" },
-    { slug: "renovation-contractor", name: "Direct Renovation Contractor" }, // NEW
-    { slug: "renovation", name: "Premium Home Renovation" },
-    { slug: "resale-renovation", name: "Resale Condo/HDB Renovation" }, // NEW
-    { slug: "bto-renovation", name: "BTO Renovation Package" }, // NEW
-    { slug: "wet-works", name: "Wet Works & Tiling Specialist" }, // NEW
-    { slug: "carpentry", name: "Custom Carpentry & Joinery" }, // NEW
+    // --- CORE SERVICES (VISUALIZATION FOCUS) ---
+    { slug: "3d-visualization", name: "Premium 3D Interior Visualization" },
+    { slug: "digital-twin", name: "Property Digital Twin Modeling" },
     { slug: "3d-rendering", name: "Photorealistic 3D Rendering" },
-    { slug: "condo-styling", name: "Condo Interior Styling" },
-    { slug: "hdb-transformation", name: "HDB Flat Transformation" },
+    { slug: "vr-tour", name: "Interactive 3D Virtual Tour" },
 
-    // --- NICHE SERVICES (Long tail) ---
-    { slug: "kitchen-overhaul", name: "Kitchen Renovation & Overhaul" },
-    { slug: "luxury-bathroom", name: "Toilet & Bathroom Renovation" },
-    { slug: "hack-and-build", name: "Hacking & Masonry Works" }, // NEW
-    { slug: "walk-in-wardrobe", name: "Bespoke Walk-In Wardrobe" },
-    { slug: "home-office", name: "Productive Home Office Setup" },
-    { slug: "smart-home", name: "Integrated Smart Home Renovation" },
-    { slug: "minimalist-makeover", name: "Minimalist Makeover" },
-    { slug: "feng-shui-audit", name: "Feng Shui Interior Audit" }
+    // --- SUPPORTING SERVICES (CAPTURE RENOVATION TRAFFIC) ---
+    { slug: "renovation-visualization", name: "Renovation Design Visualization" },
+    { slug: "interior-concept", name: "3D Interior Concept & Planning" },
+    { slug: "carpentry-3d", name: "Custom Carpentry 3D Detailing" },
+    { slug: "hdb-3d-model", name: "HDB Flat 3D Modeling Specialists" },
+    { slug: "condo-3d-visuals", name: "Luxury Condo Interior Visuals" }
 ];
 
 const DOMAIN = "https://booking.blesspace.org";

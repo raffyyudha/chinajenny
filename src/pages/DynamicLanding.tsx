@@ -47,7 +47,7 @@ const DynamicLanding: React.FC = () => {
     };
 
     // --- SEO METADATA ---
-    const pageTitle = `${serviceName} in ${locationName} | Jenny Sin Internal Design`;
+    const pageTitle = `${serviceName} in ${locationName} | Blesspace`;
     const metaDesc = isChinese
         ? `专为 ${locationName} 居民提供的独家 ${serviceName} 设计配套。查看我们的 2025 Japandi & Wabi-Sabi 产品组合。100% 遵守 MCST/HDB 装修规定。`
         : `Exclusive ${serviceName} packages for ${locationName} residents. See our 2025 Japandi & Wabi-Sabi portfolios. 100% MCST/HDB Compliant Renovation.`;
@@ -110,7 +110,7 @@ const DynamicLanding: React.FC = () => {
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Organization",
-                        "name": "BlessSpace",
+                        "name": "Blesspace",
                         "url": "https://booking.blesspace.org",
                         "logo": "https://booking.blesspace.org/logo.webp",
                         "description": "Premium Interior 3D Visualization specifically for " + locationName
@@ -122,8 +122,8 @@ const DynamicLanding: React.FC = () => {
             <header className="fixed top-0 w-full z-50 bg-stone-900/95 backdrop-blur text-white py-4 shadow-xl">
                 <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center">
                     <Link to="/" className="flex items-center gap-2 group">
-                        <img src="/logo.webp" alt="BlessSpace" className="h-8 brightness-0 invert group-hover:scale-110 transition-transform" />
-                        <span className="font-serif text-xl tracking-widest hidden md:block">BLESSSPACE</span>
+                        <img src="/logo.webp" alt="Blesspace" className="h-8 brightness-0 invert group-hover:scale-110 transition-transform" />
+                        <span className="font-serif text-xl tracking-widest hidden md:block">BLESSPACE</span>
                     </Link>
                     <div className="flex items-center gap-4">
                         <span className="hidden md:block text-xs text-stone-400 uppercase tracking-widest">{isChinese ? `专为 ${locationName} 服务` : `Specialist for ${locationName}`}</span>

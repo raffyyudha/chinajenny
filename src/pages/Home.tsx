@@ -90,7 +90,7 @@ const Marquee = ({ reverse = false, text }: { reverse?: boolean, text: string[] 
     <div className={`animate-marquee${reverse ? '-reverse' : ''} whitespace-nowrap flex gap-12 items-center`}>
       {[...text, ...text, ...text].map((item, i) => (
         <div key={i} className="flex items-center gap-12">
-          <span className="text-xl font-serif italic text-brand opacity-50">{i % 2 === 0 ? 'BlessSpace' : 'Mistake-Free'}</span>
+          <span className="text-xl font-serif italic text-brand opacity-50">{i % 2 === 0 ? 'Blesspace' : 'Mistake-Free'}</span>
           <span className="text-sm font-bold tracking-[0.2em] uppercase">{item}</span>
         </div>
       ))}
@@ -677,7 +677,7 @@ const Home: React.FC = () => {
 
         <div id="reservation" className="mt-40 text-center px-6">
           <div className="flex flex-col items-center">
-            <img src="/logo.webp" alt="BlessSpace" className="w-[40vw] max-w-[600px] h-auto brightness-0 invert" loading="lazy" />
+            <img src="/logo.webp" alt="Blesspace" className="w-[40vw] max-w-[600px] h-auto brightness-0 invert" loading="lazy" />
             <p className="mt-8 text-stone-500 max-w-md mx-auto">
               {t.footer.text}
             </p>
