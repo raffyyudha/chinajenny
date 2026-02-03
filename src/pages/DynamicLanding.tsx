@@ -144,7 +144,7 @@ const DynamicLanding: React.FC = () => {
                                 <span className="text-brand italic text-4xl md:text-6xl font-light block mt-2">{isChinese ? `专属于 ${locationName}` : `Specifically for ${locationName}`}</span>
                             </h1>
                             <p className="text-lg md:text-xl text-stone-300 max-w-xl mb-10 font-light leading-relaxed">
-                                {introText} {isChinese ? `我们利用数字孪生技术，在您支付定金之前即可看到 ${locationName} 的精确单元布局。` : `We utilize <strong>Digital Twin Technology</strong> to visualize your exact unit layout at ${locationName} before you pay a deposit.`}
+                                {introText} {isChinese ? `我们利用数字孪生技术，在您支付定金之前即可看到 ${locationName} 的精确单元布局。` : <>We utilize <strong className="text-white font-medium">Digital Twin Technology</strong> to visualize your exact unit layout at {locationName} before you pay a deposit.</>}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <a href="/#reservation" className="w-full sm:w-auto">
