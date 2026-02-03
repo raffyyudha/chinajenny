@@ -202,7 +202,7 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({ isOpen, onClose }) =
                                         <b>Next Step:</b> Tap below to connect with your Priority Designer.
                                     </p>
                                     <a
-                                        href="https://wa.me/6582252511?text=Hi%20BlessSpace%2C%20I%20have%20completed%20my%20payment%20for%20the%20Visualization%20Package.%20Here%20to%20start%20the%20process."
+                                        href="https://wa.me/6582252511?text=Hi%20Blesspace%2C%20I%20have%20completed%20my%20payment%20for%20the%20Visualization%20Package.%20Here%20to%20start%20the%20process.%20[Recommended%20by%20Raffy%20Yudha]"
                                         target="_blank"
                                         rel="noreferrer"
                                         data-html2canvas-ignore

@@ -283,9 +283,11 @@ const DynamicLanding: React.FC = () => {
                                     <p className="text-stone-400 text-sm mb-6 leading-relaxed">
                                         "For {locationName}, I recommend a fusion of {selectedStyles.join(' and ')}. Watch my explanation on how to maximize Qi flow in this specific layout type."
                                     </p>
-                                    <Button className="bg-white text-stone-900 hover:bg-stone-200 w-full text-xs">
-                                        Connect on WeChat / WhatsApp
-                                    </Button>
+                                    <a href={`https://wa.me/6580970884?text=Hi%20Jenny,%20I%20watched%20your%20video%20about%20${locationName}.%20I'd%20love%20to%20consult.%20[Recommended%20by%20Raffy%20Yudha]`} target="_blank" rel="noopener noreferrer">
+                                        <Button className="bg-white text-stone-900 hover:bg-stone-200 w-full text-xs">
+                                            Connect on WeChat / WhatsApp
+                                        </Button>
+                                    </a>
                                 </div>
 
                                 {/* SECOND VIDEO EMBED */}
