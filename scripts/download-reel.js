@@ -1,7 +1,11 @@
-const instagramGetUrl = require("instagram-url-direct");
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
+import { instagramGetUrl } from "instagram-url-direct";
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Usage: node scripts/download-reel.js <INSTAGRAM_URL>
 const args = process.argv.slice(2);
