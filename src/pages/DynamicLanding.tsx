@@ -104,6 +104,18 @@ const DynamicLanding: React.FC = () => {
                 <link rel="canonical" href={`https://booking.blesspace.org/sg/${serviceSlug}/${locationSlug}`} />
                 <meta property="og:title" content={pageTitle} />
                 <meta property="og:description" content={`Don't renovate your unit at ${locationName} blindly. Visualize it first.`} />
+                <meta property="og:image" content="https://booking.blesspace.org/logo.webp" />
+                <meta property="twitter:image" content="https://booking.blesspace.org/logo.webp" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "BlessSpace",
+                        "url": "https://booking.blesspace.org",
+                        "logo": "https://booking.blesspace.org/logo.webp",
+                        "description": "Premium Interior 3D Visualization specifically for " + locationName
+                    })}
+                </script>
             </Helmet>
 
             {/* STICKY HEADER */}
