@@ -37,7 +37,13 @@ const SINGAPORE_LOCATIONS = [
     "Dawson SkyVille", "Dawson SkyTerrace", "Pinnacle @ Duxton", "Telok Blangah ParcView",
     "Ghim Moh Edge", "Toa Payoh Crest", "Toa Payoh Apex", "Boon Keng Vistra",
     "Kallang Trivista", "MacPherson Spring", "Bedok South Horizon", "Chai Chee Green",
-    "Jurong West Jewel", "Boon Lay Glade", "Tengah Plantation", "Tengah Garden"
+    "Jurong West Jewel", "Boon Lay Glade", "Tengah Plantation", "Tengah Garden",
+
+    // --- TIER 5: TOP 2025-2026 (HOT LEADS - NEW KEYS) ---
+    "Lentor Modern", "Sceneca Residence", "Terra Hill", "The Continuum", "Tembusu Grand",
+    "Grand Dunman", "The Reserve Residences", "Watten House", "Hillock Green", "J'den",
+    "Lentor Hills Residences", "The Myst", "Pinetree Hill", "Lakegarden Residences",
+    "Altura EC", "Lumina Grand EC", "Hillhaven", "The Arcady at Boon Keng", "Lentor Mansion"
 ];
 
 // GENERATE 5000+ HDB STREETS & AVENUES
@@ -75,18 +81,27 @@ BASE_LOCATIONS.forEach(loc => {
 const ALL_LOCATIONS = [...SINGAPORE_LOCATIONS, ...GENERATED_LOCATIONS];
 
 const SERVICES = [
-    // --- CORE SERVICES (VISUALIZATION FOCUS) ---
-    { slug: "3d-visualization", name: "Premium 3D Interior Visualization" },
-    { slug: "digital-twin", name: "Property Digital Twin Modeling" },
+    // --- CORE SERVICES (DESIGN + BUILD) ---
+    { slug: "interior-design", name: "Luxury Interior Design" },
+    { slug: "renovation-contractor", name: "Direct Renovation Contractor" },
+    { slug: "renovation", name: "Premium Home Renovation" },
+    { slug: "resale-renovation", name: "Resale Condo/HDB Renovation" },
+    { slug: "bto-renovation", name: "BTO Renovation Package" },
+    { slug: "wet-works", name: "Wet Works & Tiling Specialist" },
+    { slug: "carpentry", name: "Custom Carpentry & Joinery" },
     { slug: "3d-rendering", name: "Photorealistic 3D Rendering" },
-    { slug: "vr-tour", name: "Interactive 3D Virtual Tour" },
+    { slug: "condo-styling", name: "Condo Interior Styling" },
+    { slug: "hdb-transformation", name: "HDB Flat Transformation" },
 
-    // --- SUPPORTING SERVICES (CAPTURE RENOVATION TRAFFIC) ---
-    { slug: "renovation-visualization", name: "Renovation Design Visualization" },
-    { slug: "interior-concept", name: "3D Interior Concept & Planning" },
-    { slug: "carpentry-3d", name: "Custom Carpentry 3D Detailing" },
-    { slug: "hdb-3d-model", name: "HDB Flat 3D Modeling Specialists" },
-    { slug: "condo-3d-visuals", name: "Luxury Condo Interior Visuals" }
+    // --- NICHE SERVICES (Long tail) ---
+    { slug: "kitchen-overhaul", name: "Kitchen Renovation & Overhaul" },
+    { slug: "luxury-bathroom", name: "Toilet & Bathroom Renovation" },
+    { slug: "hack-and-build", name: "Hacking & Masonry Works" },
+    { slug: "walk-in-wardrobe", name: "Bespoke Walk-In Wardrobe" },
+    { slug: "home-office", name: "Productive Home Office Setup" },
+    { slug: "smart-home", name: "Integrated Smart Home Renovation" },
+    { slug: "minimalist-makeover", name: "Minimalist Makeover" },
+    { slug: "feng-shui-audit", name: "Feng Shui Interior Audit" }
 ];
 
 const DOMAIN = "https://booking.blesspace.org";
