@@ -10,6 +10,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 
 const DynamicLanding: React.FC = () => {
     const { service: serviceSlug, location: locationSlug } = useParams<{ service: string; location: string }>();
+    const location = useLocation();
+    const isChinese = location.pathname.startsWith('/zh-sg');
 
     // --- LOGIC: DATA HANDLING ---
     const formatSlug = (slug: string) => slug?.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
