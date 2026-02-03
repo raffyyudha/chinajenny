@@ -283,7 +283,7 @@ const DynamicLanding: React.FC = () => {
                                     <p className="text-stone-400 text-sm mb-6 leading-relaxed">
                                         "For {locationName}, I recommend a fusion of {selectedStyles.join(' and ')}. Watch my explanation on how to maximize Qi flow in this specific layout type."
                                     </p>
-                                    <a href={`https://wa.me/6580970884?text=Hi%20Jenny,%20I%20watched%20your%20video%20about%20${locationName}.%20I'd%20love%20to%20consult.%20[Recommended%20by%20Raffy%20Yudha]`} target="_blank" rel="noopener noreferrer">
+                                    <a href={`https://wa.me/6580970884?text=Hi%20Jenny,%20regarding%20the%20Promo%20from%20Raffy%20Yudha,%20I%20watched%20your%20video%20about%20${locationName}%20and%20I'd%20love%20to%20consult.`} target="_blank" rel="noopener noreferrer">
                                         <Button className="bg-white text-stone-900 hover:bg-stone-200 w-full text-xs">
                                             Connect on WeChat / WhatsApp
                                         </Button>
@@ -442,7 +442,7 @@ const DynamicLanding: React.FC = () => {
 
             {/* FLOATING WHATSAPP BUTTON */}
             <a
-                href={`https://wa.me/6580970884?text=Hi%20Blesspace,%20I%20am%20interested%20in%203D%20visualization%20for%20my%20unit%20at%20${locationName}.%20[Recommended%20by%20Raffy%20Yudha]`}
+                href={`https://wa.me/6580970884?text=Hi%20Blesspace,%20I%20want%20to%20claim%20the%20Promo%20from%20Raffy%20Yudha%20for%203D%20visualization%20at%20${locationName}.%20Can%20you%20share%20more%20details?`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
