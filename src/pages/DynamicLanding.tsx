@@ -242,13 +242,19 @@ const DynamicLanding: React.FC = () => {
                         <img src="/logo.webp" alt="Blesspace" className="h-8 brightness-0 invert group-hover:scale-110 transition-transform" />
                         <span className="font-serif text-xl tracking-widest hidden md:block">BLESSPACE</span>
                     </Link>
-                    <div className="flex items-center gap-4">
-                        <span className="hidden md:block text-xs text-stone-400 uppercase tracking-widest">{isChinese ? `专为 ${locationName} 服务` : `Specialist for ${locationName}`}</span>
-                        <a href="/#reservation">
-                            <Button variant="primary" className="text-xs md:text-sm !py-2">
-                                {isChinese ? "获取报价" : "Get Quote"}
-                            </Button>
-                        </a>
+                    <div className="flex items-center gap-6">
+                        <nav className="hidden lg:flex items-center gap-6 text-[10px] font-bold tracking-[0.2em] uppercase text-stone-400">
+                            <Link to="/" className="hover:text-white transition-colors">Booking Home</Link>
+                            <a href="https://blessspace.org" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-l border-stone-700 pl-6">Company Profile</a>
+                        </nav>
+                        <div className="flex items-center gap-4 border-l border-stone-700 pl-6">
+                            <span className="hidden md:block text-xs text-stone-500 uppercase tracking-widest">{isChinese ? `专为 ${locationName} 服务` : `Area: ${locationName}`}</span>
+                            <a href="/#reservation">
+                                <Button variant="primary" className="text-xs md:text-sm !py-2">
+                                    {isChinese ? "获取报价" : "Get Quote"}
+                                </Button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -548,11 +554,15 @@ const DynamicLanding: React.FC = () => {
                             ))}
                     </div>
 
-                    <div className="mt-12 pt-12 border-t border-stone-800 text-center">
-                        <p className="text-xs text-stone-600">
-                            &copy; 2025 BlessSpace Interior Design Singapore. specializing in {locationName} renovations.
-                            All 3D renderings are artist impressions.
+                    <div className="mt-12 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <p className="text-xs text-stone-600 order-2 md:order-1">
+                            &copy; 2025 BlessSpace Interior Design Singapore. Specializing in {locationName} renovations.
+                            Member of <a href="https://blessspace.org" className="text-stone-500 hover:text-brand underline decoration-stone-700">BlessSpace Group</a>.
                         </p>
+                        <div className="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase order-1 md:order-2">
+                            <Link to="/" className="text-stone-500 hover:text-white transition-colors">Booking Site</Link>
+                            <a href="https://blessspace.org" target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors">Company Office</a>
+                        </div>
                     </div>
                 </div>
             </section>
