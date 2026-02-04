@@ -354,6 +354,47 @@ const DynamicLanding: React.FC = () => {
                 </div>
             </section>
 
+            {/* SOCIAL PROOF: RECENT ACTIVITY - PSYCHOLOGICAL TRIGGER */}
+            <section className="bg-stone-50 border-y border-stone-200 py-8 overflow-hidden relative z-20">
+                <div className="max-w-[1600px] mx-auto px-6">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div className="flex items-center gap-4">
+                            <div className="flex -space-x-3">
+                                {[1, 2, 3, 4].map((i) => (
+                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-stone-200 overflow-hidden shadow-sm">
+                                        <img src={`https://i.pravatar.cc/100?u=${seed + i}`} alt="user" className="w-full h-full object-cover grayscale" />
+                                    </div>
+                                ))}
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span className="text-sm font-bold text-stone-900">{((seed % 5) + 3)} Owners at {locationName} currently viewing</span>
+                                </div>
+                                <p className="text-xs text-stone-500 uppercase tracking-widest font-medium">Design slots for 2026 are filling up fast</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-8 overflow-x-auto no-scrollbar py-2 w-full md:w-auto">
+                            {[
+                                { user: "Tan ***", action: "Requested Floor Plan Analysis", time: "2h ago" },
+                                { user: "Lim ***", action: "Booked 3D Virtual Tour", time: "5h ago" },
+                                { user: "K. Wong", action: "Requested Quote", time: "1d ago" }
+                            ].map((activity, idx) => (
+                                <div key={idx} className="flex-shrink-0 bg-white px-4 py-2 rounded-lg border border-stone-100 shadow-sm flex items-center gap-3">
+                                    <div className="w-2 h-2 bg-brand rounded-full"></div>
+                                    <div className="text-xs">
+                                        <span className="font-bold text-stone-900">{activity.user}</span>
+                                        <span className="text-stone-500 mx-2">{activity.action}</span>
+                                        <span className="text-[10px] text-stone-400 italic">{activity.time}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* TRUST SECTION - HUSBAND & WIFE DYNAMIC */}
             <section className="py-24 bg-white">
                 <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
