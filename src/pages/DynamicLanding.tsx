@@ -594,20 +594,76 @@ const DynamicLanding: React.FC = () => {
                                 </Link>
                             ))}
                     </div>
+                </div>
+            </section>
 
-                    {/* Partner Tools Section */}
-                    <div className="mt-12 pt-8 border-t border-stone-800/50">
-                        <p className="text-xs text-stone-500 text-center mb-4">Free Tools We Recommend:</p>
-                        <div className="flex flex-wrap justify-center gap-6 text-xs">
-                            <a href="https://draftkit.online" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand transition-colors">
-                                Need a free invoice generator? Try <span className="font-bold text-stone-300">DraftKit</span> - 100% free, no signup
-                            </a>
-                            <span className="text-stone-700">|</span>
-                            <a href="https://freereceipt.online" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand transition-colors">
-                                Create receipts instantly at <span className="font-bold text-stone-300">FreeReceipt.online</span>
-                            </a>
-                        </div>
+            {/* PARTNER TOOLS BANNER - PROMINENT BACKLINKS */}
+            <section className="py-16 bg-gradient-to-br from-stone-800 to-stone-900 border-y border-stone-700">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <h3 className="text-center text-2xl md:text-3xl font-bold text-white mb-4">
+                        Free Business Tools We Recommend
+                    </h3>
+                    <p className="text-center text-stone-400 mb-10 max-w-2xl mx-auto">
+                        Running a business? These free tools will help you manage invoices and receipts professionally.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {/* DraftKit Card */}
+                        <a
+                            href="https://draftkit.online"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-stone-900/50 backdrop-blur border border-stone-700 rounded-2xl p-8 hover:border-brand/50 hover:bg-stone-800/50 transition-all duration-300"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                                    📄
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-bold text-white group-hover:text-brand transition-colors">
+                                        DraftKit - Free Invoice Generator
+                                    </h4>
+                                    <p className="text-stone-400 mt-2">
+                                        Create professional invoices in seconds. 100% free, no signup required. Perfect for freelancers and small businesses.
+                                    </p>
+                                    <span className="inline-block mt-4 text-sm font-bold text-brand uppercase tracking-wider">
+                                        Try Now →
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
+                        {/* FreeReceipt Card */}
+                        <a
+                            href="https://freereceipt.online"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-stone-900/50 backdrop-blur border border-stone-700 rounded-2xl p-8 hover:border-brand/50 hover:bg-stone-800/50 transition-all duration-300"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                                    🧾
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-bold text-white group-hover:text-brand transition-colors">
+                                        FreeReceipt.online - Receipt Maker
+                                    </h4>
+                                    <p className="text-stone-400 mt-2">
+                                        Generate receipts instantly for your transactions. Download as PDF, share via WhatsApp. Completely free.
+                                    </p>
+                                    <span className="inline-block mt-4 text-sm font-bold text-brand uppercase tracking-wider">
+                                        Create Receipt →
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                </div>
+            </section>
+
+            {/* FOOTER */}
+            <section className="py-12 bg-stone-900 text-stone-400 border-t border-stone-800">
+                <div className="max-w-[1600px] mx-auto px-6">
 
                     <div className="mt-8 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-6">
                         <p className="text-xs text-stone-600 order-2 md:order-1">
