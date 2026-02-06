@@ -595,9 +595,23 @@ const DynamicLanding: React.FC = () => {
                             ))}
                     </div>
 
-                    <div className="mt-12 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                    {/* Partner Tools Section */}
+                    <div className="mt-12 pt-8 border-t border-stone-800/50">
+                        <p className="text-xs text-stone-500 text-center mb-4">Free Tools We Recommend:</p>
+                        <div className="flex flex-wrap justify-center gap-6 text-xs">
+                            <a href="https://draftkit.online" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand transition-colors">
+                                Need a free invoice generator? Try <span className="font-bold text-stone-300">DraftKit</span> - 100% free, no signup
+                            </a>
+                            <span className="text-stone-700">|</span>
+                            <a href="https://freereceipt.online" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand transition-colors">
+                                Create receipts instantly at <span className="font-bold text-stone-300">FreeReceipt.online</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-6">
                         <p className="text-xs text-stone-600 order-2 md:order-1">
-                            &copy; 2025 BlessSpace Interior Design Singapore. Specializing in {locationName} renovations.
+                            &copy; 2026 BlessSpace Interior Design Singapore. Specializing in {locationName} renovations.
                             Member of <a href="https://blessspace.org" className="text-stone-500 hover:text-brand underline decoration-stone-700">BlessSpace Group</a>.
                         </p>
                         <div className="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase order-1 md:order-2">
