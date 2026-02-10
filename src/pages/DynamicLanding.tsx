@@ -5,7 +5,7 @@ import { SINGAPORE_LOCATIONS, SERVICES, VIRAL_VIDEOS, DESIGN_STYLES } from '../d
 import { GALLERY_IMAGES } from '../constants';
 import { Button } from '../components/ui/Button';
 import { Reveal } from '../components/Reveal';
-import { CheckCircle2, DraftingCompass, MapPin, Play, Volume2, VolumeX, ShieldCheck, Box } from 'lucide-react';
+import { CheckCircle2, DraftingCompass, MapPin, Play, Volume2, VolumeX, ShieldCheck, Box, ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 const DynamicLanding: React.FC = () => {
@@ -597,68 +597,110 @@ const DynamicLanding: React.FC = () => {
                 </div>
             </section>
 
-            {/* PARTNER TOOLS BANNER - PROMINENT BACKLINKS */}
-            <section className="py-16 bg-gradient-to-br from-stone-800 to-stone-900 border-y border-stone-700">
-                <div className="max-w-[1200px] mx-auto px-6">
-                    <h3 className="text-center text-2xl md:text-3xl font-bold text-white mb-4">
-                        Free Business Tools We Recommend
-                    </h3>
-                    <p className="text-center text-stone-400 mb-10 max-w-2xl mx-auto">
-                        Running a business? These free tools will help you manage invoices and receipts professionally.
-                    </p>
+            {/* PARTNER TOOLS GRID - ENHANCED BACKLINKS */}
+            <section className="py-24 bg-stone-900 border-y border-stone-800 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent opacity-30" />
+                <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                    <Reveal>
+                        <div className="text-center mb-16">
+                            <h3 className="text-3xl md:text-5xl font-serif text-white mb-6">
+                                Professional <span className="text-brand italic">Utility Tools</span>
+                            </h3>
+                            <p className="text-stone-400 max-w-2xl mx-auto text-lg">
+                                We've partnered with these high-utility platforms to help you manage your business and renovation finances with zero cost.
+                            </p>
+                        </div>
+                    </Reveal>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {/* DraftKit Card */}
-                        <a
-                            href="https://draftkit.online"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group bg-stone-900/50 backdrop-blur border border-stone-700 rounded-2xl p-8 hover:border-brand/50 hover:bg-stone-800/50 transition-all duration-300"
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
-                                    📄
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-white group-hover:text-brand transition-colors">
-                                        DraftKit - Free Invoice Generator
-                                    </h4>
-                                    <p className="text-stone-400 mt-2">
-                                        Create professional invoices in seconds. 100% free, no signup required. Perfect for freelancers and small businesses.
-                                    </p>
-                                    <span className="inline-block mt-4 text-sm font-bold text-brand uppercase tracking-wider">
-                                        Try Now →
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-
-                        {/* FreeReceipt Card */}
-                        <a
-                            href="https://freereceipt.online"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group bg-stone-900/50 backdrop-blur border border-stone-700 rounded-2xl p-8 hover:border-brand/50 hover:bg-stone-800/50 transition-all duration-300"
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
-                                    🧾
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-white group-hover:text-brand transition-colors">
-                                        FreeReceipt.online - Receipt Maker
-                                    </h4>
-                                    <p className="text-stone-400 mt-2">
-                                        Generate receipts instantly for your transactions. Download as PDF, share via WhatsApp. Completely free.
-                                    </p>
-                                    <span className="inline-block mt-4 text-sm font-bold text-brand uppercase tracking-wider">
-                                        Create Receipt →
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            {
+                                name: "BepCalc",
+                                url: "https://bepcalc.online",
+                                desc: "Quickly determine the break-even point for your business or project ideas.",
+                                icon: "📈",
+                                tag: "Business"
+                            },
+                            {
+                                name: "DraftKit",
+                                url: "https://draftkit.online",
+                                desc: "Lightweight invoice generator. Create professional documents instantly without login.",
+                                icon: "📄",
+                                tag: "Invoicing"
+                            },
+                            {
+                                name: "FreeReceipt",
+                                url: "https://freereceipt.online",
+                                desc: "Fast receipt generator for small businesses and freelancers. 100% free.",
+                                icon: "🧾",
+                                tag: "Finance"
+                            },
+                            {
+                                name: "MortgagesCalc",
+                                url: "https://mortgagescalc.online",
+                                desc: "Estimate monthly payments and explore home financing scenarios effortlessly.",
+                                icon: "🏠",
+                                tag: "Mortgage"
+                            },
+                            {
+                                name: "TaxCalPro",
+                                url: "https://taxcalpro.online",
+                                desc: "Instantly estimate your take-home pay with our professional salary tax calculator.",
+                                icon: "💰",
+                                tag: "Salary"
+                            },
+                            {
+                                name: "Jamie Real Estates",
+                                url: "https://jamierealestates.com",
+                                desc: "Specialized invoice and quote generator designed for real estate professionals.",
+                                icon: "🏢",
+                                tag: "Real Estate"
+                            },
+                            {
+                                name: "FixMyLoan",
+                                url: "https://fixmyloan.online",
+                                desc: "Calculate interest savings and see how fast you can pay off your loan.",
+                                icon: "🛠️",
+                                tag: "Loans"
+                            },
+                            {
+                                name: "Tec-Tiles",
+                                url: "https://tec-tiles.com",
+                                desc: "Accurately estimate tile quantities and material costs for renovation projects.",
+                                icon: "🧱",
+                                tag: "Construction"
+                            }
+                        ].map((tool, idx) => (
+                            <Reveal key={idx} delay={idx * 0.05}>
+                                <a
+                                    href={tool.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group block h-full bg-stone-800/30 backdrop-blur-sm border border-stone-800 rounded-xl p-6 hover:border-brand/40 hover:bg-stone-800/60 transition-all duration-500"
+                                >
+                                    <div className="flex flex-col h-full">
+                                        <div className="flex justify-between items-start mb-4">
+                                            <span className="text-3xl">{tool.icon}</span>
+                                            <span className="text-[10px] font-bold tracking-widest uppercase text-stone-500 bg-stone-900/50 px-2 py-1 rounded">
+                                                {tool.tag}
+                                            </span>
+                                        </div>
+                                        <h4 className="text-lg font-bold text-white group-hover:text-brand transition-colors mb-2">
+                                            {tool.name}
+                                        </h4>
+                                        <p className="text-stone-400 text-sm leading-relaxed mb-6 flex-grow">
+                                            {tool.desc}
+                                        </p>
+                                        <div className="flex items-center gap-2 text-brand text-xs font-bold uppercase tracking-widest mt-auto opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 transition-transform duration-300">
+                                            Visit Tool <ArrowRight size={12} />
+                                        </div>
+                                    </div>
+                                </a>
+                            </Reveal>
+                        ))}
                     </div>
                 </div>
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-stone-700 to-transparent opacity-20" />
             </section>
 
             {/* FOOTER */}
